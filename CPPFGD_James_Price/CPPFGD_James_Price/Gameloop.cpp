@@ -35,6 +35,8 @@ bool Gameloop::Init() {
 	//Create the renderer
 	renderer = SDL_CreateRenderer(window, - 1, SDL_RENDERER_ACCELERATED);
 
+	level = new LevelSystem(renderer);
+
 	//Check if the renderer was created properly
 	if (renderer == nullptr) {
 		std::cerr << "Could not create the renderer" << SDL_GetError();
@@ -81,6 +83,7 @@ void Gameloop::Draw()
 	//Clear the renderer
 	SDL_RenderClear(renderer);
 	//Render stuff
+	level->DrawMap();
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);

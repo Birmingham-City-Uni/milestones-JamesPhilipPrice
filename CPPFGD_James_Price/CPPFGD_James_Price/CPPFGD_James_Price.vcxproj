@@ -151,10 +151,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Gameloop.cpp" />
+    <ClCompile Include="LevelSystem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gameloop.h" />
+    <ClInclude Include="LevelSystem.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
