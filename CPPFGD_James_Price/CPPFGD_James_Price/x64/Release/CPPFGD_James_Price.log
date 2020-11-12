@@ -1,10 +1,6 @@
 ﻿  Gameloop.cpp
   LevelSystem.cpp
   main.cpp
-  Generating code
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(75): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
-  10 of 21 functions (47.6%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Release\CPPFGD_James_Price.exe
+  Generating Code...
+  LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
+  CPPFGD_James_Price.vcxproj -> Z:\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Release\CPPFGD_James_Price.exe

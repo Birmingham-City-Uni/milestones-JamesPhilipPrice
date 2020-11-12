@@ -1,6 +1,7 @@
-﻿  Generating code
-  Previous IPDB not found, fall back to full compilation.
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(74): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
-  All 7 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+﻿  Gameloop.cpp
+  Generating code
+  2 of 21 functions ( 9.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\Release\CPPFGD_James_Price.exe
+  CPPFGD_James_Price.vcxproj -> Z:\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\Release\CPPFGD_James_Price.exe

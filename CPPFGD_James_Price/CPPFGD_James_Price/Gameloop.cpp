@@ -72,6 +72,7 @@ bool Gameloop::ProcessInput() {
 		}
 		return true;
 	}
+	return true;
 }
 
 void Gameloop::Update() {
