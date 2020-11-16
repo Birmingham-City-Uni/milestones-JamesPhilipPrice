@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "LevelSystem.h"
+#include "Player.h"
 
 class Gameloop {
 public:
@@ -11,12 +12,6 @@ public:
 	void Draw();
 	void Clean();
 
-	bool getKeyDown(int keyCode) {
-		if (keyCode > 0 && keyCode < 512) {
-			return this->keyDown[keyCode];
-		}
-		return false;
-	}
 
 private:
 	const int WINDOW_WIDTH = 1280;
@@ -24,5 +19,5 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	LevelSystem* level;
-	bool keyDown[512];
+	Player* player;
 };

@@ -1,14 +1,21 @@
 #include<iostream>
 #include "Gameloop.h"
 
+
+enum KeyStates {
+	W = 0,
+	A,
+	S,
+	D,
+	ENUM_COUNT
+};
+
+bool keys[KeyStates::ENUM_COUNT];
+
 Gameloop::Gameloop() {
 	//Pointers to the SDL window and renderer
 	window = nullptr;
 	renderer = nullptr;
-	//Create the array for keypresses
-	for (int i = 0; i < 512; i++) {
-		keyDown[i] = false;
-	}
 }
 
 bool Gameloop::Init() {
@@ -35,17 +42,16 @@ bool Gameloop::Init() {
 	//Create the renderer
 	renderer = SDL_CreateRenderer(window, - 1, SDL_RENDERER_ACCELERATED);
 
-	level = new LevelSystem(renderer);
-
 	//Check if the renderer was created properly
 	if (renderer == nullptr) {
 		std::cerr << "Could not create the renderer" << SDL_GetError();
 		return false;
 	}
 	
-	for (int i = 0; i < 512; i++) {
-		keyDown[i] = false;
-	}
+	//CREATE THE MAIN GAME ELEMENTS
+	level = new LevelSystem(renderer);
+
+	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
 
 	return true;
 }
@@ -61,13 +67,40 @@ bool Gameloop::ProcessInput() {
 			return false;
 		}
 		if (e.type == SDL_KEYDOWN) {
-			if (e.key.keysym.scancode < 512) {
-				keyDown[e.key.keysym.scancode] = true;
+			//SORT OUT INPUT HERE!!!
+			switch (e.key.keysym.sym) {
+			case SDLK_w:
+				keys[W] = true;
+				break;
+			case SDLK_a:
+				keys[A] = true;
+				break;
+			case SDLK_s:
+				keys[S] = true;
+				break;
+			case SDLK_d:
+				keys[D] = true;
+				break;
+			default:
+				break;
 			}
 		}
 		else if (e.type == SDL_KEYUP) {
-			if (e.key.keysym.scancode < 512) {
-				keyDown[e.key.keysym.scancode] = false;
+			switch (e.key.keysym.sym) {
+			case SDLK_w:
+				keys[W] = false;
+				break;
+			case SDLK_a:
+				keys[A] = false;
+				break;
+			case SDLK_s:
+				keys[S] = false;
+				break;
+			case SDLK_d:
+				keys[D] = false;
+				break;
+			default:
+				break;
 			}
 		}
 		return true;
@@ -76,7 +109,7 @@ bool Gameloop::ProcessInput() {
 }
 
 void Gameloop::Update() {
-
+	player->ProcessInput(keys);
 }
 
 void Gameloop::Draw()
@@ -85,6 +118,7 @@ void Gameloop::Draw()
 	SDL_RenderClear(renderer);
 	//Render stuff
 	level->DrawMap();
+	player->Draw();
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);
