@@ -9,6 +9,7 @@ private:
 	bool movable; //Whether the object is stationary
 	bool damagable; //Use health or not
 	float health;
+	float x, y;
 	SDL_Rect imageSrc;//Rect used for getting the src image
 	SDL_Rect dimensions;//Position and size of entity
 

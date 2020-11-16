@@ -24,8 +24,10 @@ Entity::~Entity() {
 }
 
 void Entity::Move(float _movement[2]) {
-	dimensions.x += _movement[0];
-	dimensions.y += _movement[1];
+	x += _movement[0];
+	y += _movement[1];
+	dimensions.x = x;
+	dimensions.y = y;
 }
 
 void Entity::Draw() {
