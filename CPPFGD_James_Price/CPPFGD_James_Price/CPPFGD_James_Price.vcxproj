@@ -156,12 +156,16 @@
     <ClCompile Include="LevelSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Target.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Gameloop.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="LevelSystem.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Target.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,14 +1,6 @@
 #include<iostream>
 #include "Gameloop.h"
-
-
-enum KeyStates {
-	W = 0,
-	A,
-	S,
-	D,
-	ENUM_COUNT
-};
+#include "Keys.h"
 
 bool keys[KeyStates::ENUM_COUNT];
 
@@ -52,6 +44,11 @@ bool Gameloop::Init() {
 	level = new LevelSystem(renderer);
 
 	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
+
+	target = new Target(256, 256, "assets/Target.png", renderer, false, false, 100);
+
+	bulletManager = new BulletManager(renderer, player, target);
+	bulletManager->Init();
 
 	return true;
 }
@@ -103,7 +100,28 @@ bool Gameloop::ProcessInput() {
 				break;
 			}
 		}
+		//Mouse input
 		SDL_GetMouseState(&mouseX, &mouseY);
+		if (e.type == SDL_MOUSEBUTTONDOWN) {
+			switch (e.button.button) {
+			case SDL_BUTTON_LEFT:
+				keys[MOUSELEFT] = true;
+				break;
+			case SDL_BUTTON_RIGHT:
+				keys[MOUSERIGHT] = true;
+				break;
+			}
+		}
+		else if (e.type == SDL_MOUSEBUTTONUP) {
+			switch (e.button.button) {
+			case SDL_BUTTON_LEFT:
+				keys[MOUSELEFT] = false;
+				break;
+			case SDL_BUTTON_RIGHT:
+				keys[MOUSERIGHT] = false;
+				break;
+			}
+		}
 
 		return true;
 	}
@@ -112,6 +130,8 @@ bool Gameloop::ProcessInput() {
 
 void Gameloop::Update() {
 	player->ProcessInput(keys, mouseX, mouseY);
+	bulletManager->ProcessInput(keys);
+	bulletManager->Update();
 }
 
 void Gameloop::Draw()
@@ -121,6 +141,8 @@ void Gameloop::Draw()
 	//Render stuff
 	level->DrawMap();
 	player->Draw();
+	target->Draw();
+	bulletManager->Draw();
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);
@@ -129,4 +151,5 @@ void Gameloop::Draw()
 void Gameloop::Clean()
 {
 	//Clean the memory
+	bulletManager->Clean();
 }

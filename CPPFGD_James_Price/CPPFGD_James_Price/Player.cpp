@@ -1,15 +1,8 @@
 #include<iostream>
 #include "Player.h"
+#include "Keys.h"
 
 #define PI 3.14159265
-
-enum KeyStates {
-	W = 0,
-	A,
-	S,
-	D,
-	ENUM_COUNT
-};
 
 Player::Player(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health) : Entity(_startX, _startY, _textureLocation, _renderer, _movable, _damagable, _health)
 {
@@ -45,6 +38,6 @@ void Player::ProcessInput(bool _keys[], float _mX, float _mY)
 	//Process direction the player must face
 	mDeltaX = GetOriginX() - _mX;
 	mDeltaY = GetOriginY() - _mY;
-	SetAngle(atan2(mDeltaY, mDeltaX) * (180/PI));
+	SetAngle((atan2(mDeltaY, mDeltaX) * (180/PI))-90);
 
 }

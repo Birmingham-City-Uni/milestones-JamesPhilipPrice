@@ -23,12 +23,16 @@ public:
 	Entity(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health);
 	~Entity();
 
+	bool InitializeBulletCollisions();
+
 	void Move(float _movement[2]);
 	void SetAngle(float _angle);
 	float GetAngle();
 
 	int GetOriginX();
 	int GetOriginY();
+
+	SDL_Rect* GetEntityRect();
 
 	bool TakeDamage(float _damage) {
 		//Damage object if possible, then return if the object is alive (or return true if damage doesn't apply)

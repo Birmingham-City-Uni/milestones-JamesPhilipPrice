@@ -32,6 +32,10 @@ void Entity::Move(float _movement[2]) {
 	dimensions.y = y;
 }
 
+SDL_Rect* Entity::GetEntityRect() {
+	return &dimensions;
+}
+
 void Entity::SetAngle(float _angle) {
 	angle = _angle;
 }

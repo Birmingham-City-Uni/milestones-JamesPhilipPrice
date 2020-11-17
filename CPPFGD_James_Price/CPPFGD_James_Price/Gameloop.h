@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include "LevelSystem.h"
 #include "Player.h"
+#include "Target.h"
+#include "BulletManager.h"
 
 class Gameloop {
 public:
@@ -21,4 +23,6 @@ private:
 	SDL_Renderer* renderer;
 	LevelSystem* level;
 	Player* player;
+	Target* target;
+	BulletManager* bulletManager;
 };
