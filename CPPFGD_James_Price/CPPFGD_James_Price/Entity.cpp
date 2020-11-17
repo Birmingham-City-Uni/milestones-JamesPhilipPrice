@@ -15,6 +15,8 @@ Entity::Entity(int _startX, int _startY, const char* _textureLocation, SDL_Rende
 	SDL_Surface* tempSurface = IMG_Load(_textureLocation);
 	imageSrc.w = dimensions.w = tempSurface->w;
 	imageSrc.h = dimensions.h = tempSurface->h;
+	center.x = dimensions.w / 2;
+	center.y = dimensions.h / 2;
 	texture = SDL_CreateTextureFromSurface(this->renderer, tempSurface);
 	SDL_FreeSurface(tempSurface);
 }
@@ -30,7 +32,23 @@ void Entity::Move(float _movement[2]) {
 	dimensions.y = y;
 }
 
+void Entity::SetAngle(float _angle) {
+	angle = _angle;
+}
+
+float Entity::GetAngle() {
+	return angle;
+}
+
+int Entity::GetOriginX() {
+	return x + center.x;
+}
+
+int Entity::GetOriginY() {
+	return y + center.y;
+}
+
 void Entity::Draw() {
-	SDL_RenderCopy(this->renderer, this->texture, &imageSrc, &dimensions);
+	SDL_RenderCopyEx(this->renderer, this->texture, &imageSrc, &dimensions, angle, NULL, SDL_FLIP_NONE);
 }
 

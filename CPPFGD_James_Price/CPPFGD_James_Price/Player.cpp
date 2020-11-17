@@ -1,6 +1,8 @@
 #include<iostream>
 #include "Player.h"
 
+#define PI 3.14159265
+
 enum KeyStates {
 	W = 0,
 	A,
@@ -18,7 +20,7 @@ Player::~Player() {
 
 }
 
-void Player::ProcessInput(bool _keys[])
+void Player::ProcessInput(bool _keys[], float _mX, float _mY)
 {
 	//Process Movement
 	float direction[2] = { 0, 0 };
@@ -39,4 +41,10 @@ void Player::ProcessInput(bool _keys[])
 	direction[1] *= WALKSPEED;
 
 	Move(direction);
+
+	//Process direction the player must face
+	mDeltaX = GetOriginX() - _mX;
+	mDeltaY = GetOriginY() - _mY;
+	SetAngle(atan2(mDeltaY, mDeltaX) * (180/PI));
+
 }

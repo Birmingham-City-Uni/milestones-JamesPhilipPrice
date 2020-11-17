@@ -1,10 +1,17 @@
 ﻿  Entity.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(29,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(30,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(31,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(32,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(44,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(48,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Gameloop.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(114,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(114,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Player.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(38,18): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(39,18): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(40,18): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(41,18): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(46,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(47,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(48,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating Code...
   LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance

@@ -103,13 +103,15 @@ bool Gameloop::ProcessInput() {
 				break;
 			}
 		}
+		SDL_GetMouseState(&mouseX, &mouseY);
+
 		return true;
 	}
 	return true;
 }
 
 void Gameloop::Update() {
-	player->ProcessInput(keys);
+	player->ProcessInput(keys, mouseX, mouseY);
 }
 
 void Gameloop::Draw()
