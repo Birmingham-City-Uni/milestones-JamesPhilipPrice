@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-#define WALKSPEED 0.016;
+#define WALKSPEED 0.1;
 #define RUNSPEED 3;
 
 class Player : public Entity {

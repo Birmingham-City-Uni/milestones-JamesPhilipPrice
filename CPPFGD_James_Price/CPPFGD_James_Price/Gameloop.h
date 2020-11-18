@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include "TextRenderer.h"
 #include "LevelSystem.h"
 #include "Player.h"
 #include "Target.h"
@@ -13,7 +14,7 @@ public:
 	void Update();
 	void Draw();
 	void Clean();
-
+	int score = 0;
 
 private:
 	const int WINDOW_WIDTH = 1280;
@@ -21,6 +22,7 @@ private:
 	int mouseX, mouseY;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	TextRenderer* textRenderer;
 	LevelSystem* level;
 	Player* player;
 	Target* target;

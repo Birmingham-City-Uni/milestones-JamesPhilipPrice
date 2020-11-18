@@ -37,7 +37,8 @@ public:
 		}
 	}
 
-	void Update() {
+	int Update() {
+		int scoreVal = 0;
 		for (auto& b : bullets) {
 			b.x += sin(b.rotation * PI / 180.0f) * BULLET_VELOCITY;
 			b.y -= cos(b.rotation * PI / 180.0f) * BULLET_VELOCITY;
@@ -47,12 +48,14 @@ public:
 			SDL_Rect nullRect;
 			if (SDL_IntersectRect(&bulletRect, target->GetEntityRect(), &nullRect)) {
 				std::cout << "Hit the target! We got some points, right Carlo?" << std::endl;
+				scoreVal++;
 				b.distance = 1000;
 			}
 		}
 
 		auto remove = std::remove_if(bullets.begin(), bullets.end(), [](const Bullet& b){return b.distance >= 1000; });
 		bullets.erase(remove, bullets.end());
+		return scoreVal;
 	}
 
 	void Draw() {

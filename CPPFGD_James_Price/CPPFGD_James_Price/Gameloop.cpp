@@ -41,6 +41,8 @@ bool Gameloop::Init() {
 	}
 	
 	//CREATE THE MAIN GAME ELEMENTS
+	textRenderer = new TextRenderer(renderer, "assets/fonts/Russian.ttf", 40);
+
 	level = new LevelSystem(renderer);
 
 	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
@@ -131,7 +133,7 @@ bool Gameloop::ProcessInput() {
 void Gameloop::Update() {
 	player->ProcessInput(keys, mouseX, mouseY);
 	bulletManager->ProcessInput(keys);
-	bulletManager->Update();
+	score += bulletManager->Update();
 }
 
 void Gameloop::Draw()
@@ -143,6 +145,8 @@ void Gameloop::Draw()
 	player->Draw();
 	target->Draw();
 	bulletManager->Draw();
+	std::string scoreString = "Score: " + std::to_string(score);
+	textRenderer->RenderString(scoreString, 1100, 640);
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);
