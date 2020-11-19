@@ -1,7 +1,53 @@
-﻿  Gameloop.cpp
+﻿  Entity.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(31,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(32,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(48,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(52,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Gameloop.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(30,34): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(32,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(43,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(134,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(134,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  LevelSystem.cpp
+  main.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(30,34): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(32,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(43,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Player.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(33,18): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(34,18): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(39,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(40,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(41,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Target.cpp
+  TextRenderer.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(6,67): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(6,67): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(11,10): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
   Generating code
-  2 of 21 functions ( 9.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  209 of 209 functions (100.0%) were compiled.
+    188 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  CPPFGD_James_Price.vcxproj -> Z:\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\Release\CPPFGD_James_Price.exe
+  CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\Release\CPPFGD_James_Price.exe
