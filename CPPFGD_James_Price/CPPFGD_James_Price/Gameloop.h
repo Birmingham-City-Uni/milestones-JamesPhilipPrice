@@ -1,6 +1,10 @@
 #pragma once
 #include <SDL.h>
+#include "TextRenderer.h"
 #include "LevelSystem.h"
+#include "Player.h"
+#include "Target.h"
+#include "BulletManager.h"
 
 class Gameloop {
 public:
@@ -10,19 +14,17 @@ public:
 	void Update();
 	void Draw();
 	void Clean();
-
-	bool getKeyDown(int keyCode) {
-		if (keyCode > 0 && keyCode < 512) {
-			return this->keyDown[keyCode];
-		}
-		return false;
-	}
+	int score = 0;
 
 private:
 	const int WINDOW_WIDTH = 1280;
 	const int WINDOW_HEIGHT = 720;
+	int mouseX, mouseY;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	TextRenderer* textRenderer;
 	LevelSystem* level;
-	bool keyDown[512];
+	Player* player;
+	Target* target;
+	BulletManager* bulletManager;
 };

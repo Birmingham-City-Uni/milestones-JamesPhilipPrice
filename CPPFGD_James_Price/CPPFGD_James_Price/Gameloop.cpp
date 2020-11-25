@@ -1,14 +1,13 @@
 #include<iostream>
 #include "Gameloop.h"
+#include "Keys.h"
+
+bool keys[KeyStates::ENUM_COUNT];
 
 Gameloop::Gameloop() {
 	//Pointers to the SDL window and renderer
 	window = nullptr;
 	renderer = nullptr;
-	//Create the array for keypresses
-	for (int i = 0; i < 512; i++) {
-		keyDown[i] = false;
-	}
 }
 
 bool Gameloop::Init() {
@@ -35,17 +34,23 @@ bool Gameloop::Init() {
 	//Create the renderer
 	renderer = SDL_CreateRenderer(window, - 1, SDL_RENDERER_ACCELERATED);
 
-	level = new LevelSystem(renderer);
-
 	//Check if the renderer was created properly
 	if (renderer == nullptr) {
 		std::cerr << "Could not create the renderer" << SDL_GetError();
 		return false;
 	}
 	
-	for (int i = 0; i < 512; i++) {
-		keyDown[i] = false;
-	}
+	//CREATE THE MAIN GAME ELEMENTS
+	textRenderer = new TextRenderer(renderer, "assets/fonts/Russian.ttf", 40);
+
+	level = new LevelSystem(renderer);
+
+	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
+
+	target = new Target(256, 256, "assets/Target.png", renderer, false, false, 100);
+
+	bulletManager = new BulletManager(renderer, player, target);
+	bulletManager->Init();
 
 	return true;
 }
@@ -61,22 +66,74 @@ bool Gameloop::ProcessInput() {
 			return false;
 		}
 		if (e.type == SDL_KEYDOWN) {
-			if (e.key.keysym.scancode < 512) {
-				keyDown[e.key.keysym.scancode] = true;
+			//SORT OUT INPUT HERE!!!
+			switch (e.key.keysym.sym) {
+			case SDLK_w:
+				keys[W] = true;
+				break;
+			case SDLK_a:
+				keys[A] = true;
+				break;
+			case SDLK_s:
+				keys[S] = true;
+				break;
+			case SDLK_d:
+				keys[D] = true;
+				break;
+			default:
+				break;
 			}
 		}
 		else if (e.type == SDL_KEYUP) {
-			if (e.key.keysym.scancode < 512) {
-				keyDown[e.key.keysym.scancode] = false;
+			switch (e.key.keysym.sym) {
+			case SDLK_w:
+				keys[W] = false;
+				break;
+			case SDLK_a:
+				keys[A] = false;
+				break;
+			case SDLK_s:
+				keys[S] = false;
+				break;
+			case SDLK_d:
+				keys[D] = false;
+				break;
+			default:
+				break;
 			}
 		}
+		//Mouse input
+		SDL_GetMouseState(&mouseX, &mouseY);
+		if (e.type == SDL_MOUSEBUTTONDOWN) {
+			switch (e.button.button) {
+			case SDL_BUTTON_LEFT:
+				keys[MOUSELEFT] = true;
+				break;
+			case SDL_BUTTON_RIGHT:
+				keys[MOUSERIGHT] = true;
+				break;
+			}
+		}
+		else if (e.type == SDL_MOUSEBUTTONUP) {
+			switch (e.button.button) {
+			case SDL_BUTTON_LEFT:
+				keys[MOUSELEFT] = false;
+				break;
+			case SDL_BUTTON_RIGHT:
+				keys[MOUSERIGHT] = false;
+				break;
+			}
+		}
+
 		return true;
 	}
 	return true;
 }
 
 void Gameloop::Update() {
-
+	player->ProcessInput(keys, mouseX, mouseY);
+	bulletManager->ProcessInput(keys);
+	score += bulletManager->Update();
 }
 
 void Gameloop::Draw()
@@ -85,6 +142,11 @@ void Gameloop::Draw()
 	SDL_RenderClear(renderer);
 	//Render stuff
 	level->DrawMap();
+	player->Draw();
+	target->Draw();
+	bulletManager->Draw();
+	std::string scoreString = "Score: " + std::to_string(score);
+	textRenderer->RenderString(scoreString, 1100, 640);
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);
@@ -93,4 +155,5 @@ void Gameloop::Draw()
 void Gameloop::Clean()
 {
 	//Clean the memory
+	bulletManager->Clean();
 }
