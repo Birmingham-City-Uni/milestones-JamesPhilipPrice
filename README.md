@@ -11,4 +11,5 @@ The second mechanic was inspired by Metal gear solid 3: Snake eater (Metal Gear 
 So far there is a base entity class that all entities will use, like players, enemies, containers and just about anything moveable or shootable.
 So far the begginings of an enemy AI is being created, which is built off the container class, meaning that when the enemy dies the player will be able to go up to the body and loot it.
 Here is an example of how a class would be based off of the Entity class:
+
 <img src="Documentation_assets/diagrams/class.png?raw=true"/>
