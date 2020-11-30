@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Target.h"
 #include "BulletManager.h"
+#include "EnemyAIManager.h"
 
 class Gameloop {
 public:
@@ -27,4 +28,5 @@ private:
 	Player* player;
 	Target* target;
 	BulletManager* bulletManager;
+	EnemyAIManager* enemyManager;
 };
