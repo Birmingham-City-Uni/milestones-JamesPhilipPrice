@@ -26,5 +26,38 @@
     <ClInclude Include="Gameloop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="LevelSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryInteractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
   </ItemGroup>
 </Project>
