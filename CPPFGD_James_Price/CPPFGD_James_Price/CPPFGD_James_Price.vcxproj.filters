@@ -50,6 +50,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="BulletManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -83,5 +84,7 @@
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
 =======
 >>>>>>> Developments
+=======
+>>>>>>> parent of d38dae5... Added the basic setup for an inventory
   </ItemGroup>
 </Project>

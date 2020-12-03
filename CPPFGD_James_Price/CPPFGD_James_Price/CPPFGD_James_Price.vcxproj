@@ -169,6 +169,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="Keys.h" />
     <ClInclude Include="LevelSystem.h" />
     <ClInclude Include="Player.h" />
@@ -180,6 +181,8 @@
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
 =======
 >>>>>>> Developments
+=======
+>>>>>>> parent of d38dae5... Added the basic setup for an inventory
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
