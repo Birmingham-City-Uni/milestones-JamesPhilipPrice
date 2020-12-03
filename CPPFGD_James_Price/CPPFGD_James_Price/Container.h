@@ -1,11 +1,16 @@
 #pragma once
+#include<iostream>
 #include "Entity.h"
+#include "Player.h"
+#include "Keys.h"
 
 enum LootType {
-	Food = 0,
+	Empty = 0,
+	Food,
 	Water,
 	Bolts,
-	GunParts
+	GunParts,
+	ENUM_C
 };
 
 class Container : public Entity{
@@ -16,9 +21,13 @@ public:
 	LootType inventory[5][6];
 
 	void OpenChest();
+	void CloseChest();
 	void UnlockChest();
+	void CheckForOpenCondition(Player* _player, bool _keysInp[]);
+	void CheckForCloseCondition(Player* _player);
 
 private:
-	bool unlocked;
+	bool unlocked = true;
 	bool open;
+	Player* player;
 };

@@ -7,6 +7,7 @@ enum KeyStates {
 	A,
 	S,
 	D,
+	E,
 	MOUSELEFT,
 	MOUSERIGHT,
 	ENUM_COUNT

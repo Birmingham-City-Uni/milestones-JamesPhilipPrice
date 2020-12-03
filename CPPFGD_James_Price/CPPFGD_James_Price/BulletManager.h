@@ -7,13 +7,14 @@
 
 #include "Player.h"
 #include "Target.h"
+#include "EnemyAIManager.h"
 #include "Keys.h"
 
 #define PI 3.14159265
 
 class BulletManager {
 public:
-	BulletManager(SDL_Renderer* _renderer, Player* _player, Target* _target) : renderer(_renderer), player(_player), target(_target) {}
+	BulletManager(SDL_Renderer* _renderer, Player* _player, EnemyAIManager* _enemies) : renderer(_renderer), player(_player), enemyManager(_enemies) {}
 
 	struct Bullet {
 		float x, y, rotation, distance;
@@ -46,16 +47,14 @@ public:
 
 			SDL_Rect bulletRect = {b.x, b.y, 10, 10};
 			SDL_Rect nullRect;
-<<<<<<< HEAD
-			if (SDL_IntersectRect(&bulletRect, target->GetEntityRect(), &nullRect)) {
-				std::cout << "Hit the target! We got some points, right Carlo?" << std::endl;
-				scoreVal++;
-				b.distance = 1000;
-=======
 			//Check all of the enemies
 			for (auto& i : enemyManager->GetEnemies()) {
 				if (SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
-					i->TakeDamage(10);
+					//Deals damage to the enemy and checks if it is dead
+					if (!(i->TakeDamage(10))) {
+						i->UnlockChest();
+						std::cout << "The enemy has died and their inventory is now unlocked" << std::endl;
+					}
 					scoreVal++;
 					b.distance = 1000;
 					break;
@@ -63,8 +62,8 @@ public:
 				if (b.distance >= 1000) {
 					continue;
 				}
->>>>>>> parent of 0ffb9fb... Merge branch 'Developments'
 			}
+			
 		}
 
 		auto remove = std::remove_if(bullets.begin(), bullets.end(), [](const Bullet& b){return b.distance >= 1000; });
@@ -89,7 +88,7 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Texture* bulletTexture;
 	Player* player;
-	Target* target;
+	EnemyAIManager* enemyManager;
 	std::vector<Bullet> bullets;
 	const int SHOOT_TIMER_MS = 300;
 	const int BULLET_VELOCITY = 1;
