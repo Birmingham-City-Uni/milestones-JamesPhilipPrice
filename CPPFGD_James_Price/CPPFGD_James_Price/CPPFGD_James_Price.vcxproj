@@ -150,11 +150,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="EnemyAIManager.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Gameloop.cpp" />
+    <ClCompile Include="LevelSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Target.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="Container.h" />
+    <ClInclude Include="EnemyAIManager.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Gameloop.h" />
+    <ClInclude Include="Keys.h" />
+    <ClInclude Include="LevelSystem.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Target.h" />
+    <ClInclude Include="TextRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
