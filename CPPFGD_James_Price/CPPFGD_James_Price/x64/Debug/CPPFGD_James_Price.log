@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
 ﻿  Gameloop.cpp
   main.cpp
   Generating Code...
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(74): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
-=======
-﻿  Container.cpp
->>>>>>> Stashed changes
   CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Debug\CPPFGD_James_Price.exe
