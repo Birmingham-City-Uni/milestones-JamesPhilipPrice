@@ -167,11 +167,14 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Gameloop.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="Keys.h" />
     <ClInclude Include="LevelSystem.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="TextRenderer.h" />
+=======
+>>>>>>> parent of d38dae5... Added the basic setup for an inventory
 =======
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
   </ItemGroup>
