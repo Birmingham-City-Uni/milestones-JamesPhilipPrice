@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Container.cpp
   EnemyAIManager.cpp
 <<<<<<< HEAD
@@ -7,6 +8,8 @@
 =======
 =======
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
+=======
+>>>>>>> Developments
 ﻿  Gameloop.cpp
   main.cpp
 =======
@@ -44,7 +47,10 @@ C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\C
   Generating Code...
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(74): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
 =======
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
+=======
+>>>>>>> Developments
   CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Debug\CPPFGD_James_Price.exe
