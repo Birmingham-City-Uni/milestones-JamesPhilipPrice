@@ -50,7 +50,11 @@ public:
 			//Check all of the enemies
 			for (auto& i : enemyManager->GetEnemies()) {
 				if (SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
-					i->TakeDamage(10);
+					//Deals damage to the enemy and checks if it is dead
+					if (!(i->TakeDamage(10))) {
+						i->UnlockChest();
+						std::cout << "The enemy has died and their inventory is now unlocked" << std::endl;
+					}
 					scoreVal++;
 					b.distance = 1000;
 					break;

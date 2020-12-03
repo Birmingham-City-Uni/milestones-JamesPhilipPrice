@@ -9,7 +9,8 @@ enum LootType {
 	Food,
 	Water,
 	Bolts,
-	GunParts
+	GunParts,
+	ENUM_C
 };
 
 class Container : public Entity{
