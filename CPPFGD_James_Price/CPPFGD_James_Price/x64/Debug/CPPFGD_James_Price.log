@@ -5,6 +5,7 @@
   EnemyAIManager.cpp
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   Generating Code...
 =======
 =======
@@ -14,6 +15,8 @@
 ﻿  Gameloop.cpp
   main.cpp
 =======
+=======
+>>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
 =======
 >>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
   Gameloop.cpp
@@ -47,6 +50,9 @@ C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\C
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
+=======
 >>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
 =======
 >>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
