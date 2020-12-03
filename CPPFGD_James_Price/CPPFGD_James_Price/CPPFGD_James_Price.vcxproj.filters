@@ -47,6 +47,7 @@
     <ClInclude Include="Gameloop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="BulletManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -74,5 +75,7 @@
     <ClInclude Include="TextRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> parent of d38dae5... Added the basic setup for an inventory
   </ItemGroup>
 </Project>
