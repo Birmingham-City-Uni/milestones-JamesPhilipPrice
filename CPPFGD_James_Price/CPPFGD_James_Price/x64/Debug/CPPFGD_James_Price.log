@@ -1,10 +1,43 @@
 <<<<<<< HEAD
 ﻿  Container.cpp
   EnemyAIManager.cpp
+<<<<<<< HEAD
   Generating Code...
 =======
 ﻿  Gameloop.cpp
   main.cpp
+=======
+  Gameloop.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(30,34): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(32,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(43,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(136,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(136,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(30,34): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(32,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(43,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(47,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+>>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
   Generating Code...
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(74): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
 >>>>>>> parent of d38dae5... Added the basic setup for an inventory
