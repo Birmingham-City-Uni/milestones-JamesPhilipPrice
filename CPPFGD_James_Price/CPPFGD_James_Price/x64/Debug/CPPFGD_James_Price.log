@@ -4,6 +4,7 @@
 ﻿  Container.cpp
   EnemyAIManager.cpp
 <<<<<<< HEAD
+<<<<<<< HEAD
   Generating Code...
 =======
 =======
@@ -13,6 +14,8 @@
 ﻿  Gameloop.cpp
   main.cpp
 =======
+=======
+>>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
   Gameloop.cpp
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(30,34): warning C4018: '>': signed/unsigned mismatch
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(32,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
@@ -43,6 +46,9 @@ C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\C
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(64,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+<<<<<<< HEAD
+>>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
+=======
 >>>>>>> parent of 0bc99ea... Made a damagable enemy that can be pillaged.
   Generating Code...
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(74): warning C4715: 'Gameloop::ProcessInput': not all control paths return a value
