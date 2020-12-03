@@ -37,7 +37,6 @@ public:
 	bool TakeDamage(float _damage) {
 		//Damage object if possible, then return if the object is alive (or return true if damage doesn't apply)
 		if (damagable) {
-			std::cout << "Entity took damage" << std::endl;
 			health -= _damage;
 			return health > 0;
 		}
