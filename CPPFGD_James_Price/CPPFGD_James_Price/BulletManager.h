@@ -46,10 +46,24 @@ public:
 
 			SDL_Rect bulletRect = {b.x, b.y, 10, 10};
 			SDL_Rect nullRect;
+<<<<<<< HEAD
 			if (SDL_IntersectRect(&bulletRect, target->GetEntityRect(), &nullRect)) {
 				std::cout << "Hit the target! We got some points, right Carlo?" << std::endl;
 				scoreVal++;
 				b.distance = 1000;
+=======
+			//Check all of the enemies
+			for (auto& i : enemyManager->GetEnemies()) {
+				if (SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
+					i->TakeDamage(10);
+					scoreVal++;
+					b.distance = 1000;
+					break;
+				}
+				if (b.distance >= 1000) {
+					continue;
+				}
+>>>>>>> parent of 0ffb9fb... Merge branch 'Developments'
 			}
 		}
 

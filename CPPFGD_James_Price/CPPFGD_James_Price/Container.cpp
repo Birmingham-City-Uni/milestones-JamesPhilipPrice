@@ -19,3 +19,31 @@ void Container::UnlockChest()
 {
 	this->unlocked = true;
 }
+<<<<<<< HEAD
+=======
+
+void Container::CheckForOpenCondition(Player* _player, bool _keysInp[])
+{
+	//Update the container with the player and key input
+	if (unlocked && !open) {
+		if (_keysInp[E]) {
+			SDL_Rect nullRect;
+			if (SDL_IntersectRect(this->GetEntityRect(), _player->GetEntityRect(), &nullRect)) {
+				std::cout << "The container opens" << std::endl;
+				this->OpenChest();
+			}
+		}
+	}
+}
+
+void Container::CheckForCloseCondition(Player* _player)
+{
+	if (open) {
+		SDL_Rect nullRect;
+		if (!SDL_IntersectRect(this->GetEntityRect(), _player->GetEntityRect(), &nullRect)) {
+			std::cout << "The container closes" << std::endl;
+			CloseChest();
+		}
+	}
+}
+>>>>>>> parent of 0ffb9fb... Merge branch 'Developments'
