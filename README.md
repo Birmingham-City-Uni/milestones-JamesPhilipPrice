@@ -13,3 +13,7 @@ So far the begginings of an enemy AI is being created, which is built off the co
 Here is an example of how a class would be based off of the Entity class:
 
 <img src="Documentation_assets/diagrams/class.png?raw=true"/>
+
+## Update: 10/12/20
+I have done an initial code profile to get an idea of how the game's performance is and the data is shown in the screenshot bellow:
+<img src="Documentation_assets/diagrams/codeProfile1.png?raw=true"/>
