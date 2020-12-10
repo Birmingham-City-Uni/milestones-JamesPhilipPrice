@@ -6,8 +6,8 @@ Entity::Entity(int _startX, int _startY, const char* _textureLocation, SDL_Rende
 	movable = _movable;
 	damagable = _damagable;
 	health = _health;
-	dimensions.x = _startX;
-	dimensions.y = _startY;
+	dimensions.x = x = _startX;
+	dimensions.y = y = _startY;
 	imageSrc.x = imageSrc.y = 0;
 
 	//Set the attributes relevant to the texture loading and rendering
@@ -42,6 +42,16 @@ void Entity::SetAngle(float _angle) {
 
 float Entity::GetAngle() {
 	return angle;
+}
+
+bool Entity::GetLifeState()
+{
+	return alive;
+}
+
+void Entity::SetLifeState(bool _state)
+{
+	alive = _state;
 }
 
 int Entity::GetOriginX() {

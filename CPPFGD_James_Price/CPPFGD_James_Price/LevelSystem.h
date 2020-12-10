@@ -1,8 +1,26 @@
 #pragma once
+#include <map>
 #include <SDL.h>
 #include <SDL_image.h>
 
 #define TILESIZE 32;
+
+/*
+* Sumary of int to tile mapping
+* 0 - grass
+* 1 - tile
+* 2 - bush
+* 3 - glass
+*/
+
+//Definitions for different types of tiles
+enum interactability {
+	SOLID,
+	OPEN,
+	WALKABLE_MASKING,
+	BREAKABLE_SOLID,
+	BREAKABLE_TRANSPARENT
+};
 
 class LevelSystem {
 public:
@@ -19,4 +37,11 @@ private:
 	SDL_Texture* grass;
 
 	int level[20][25];
+
+	std::map<int, interactability> tileInteraction = {
+		{0 , OPEN},
+		{1 , SOLID},
+		{2 , WALKABLE_MASKING},
+		{3 , BREAKABLE_TRANSPARENT}
+	};
 };

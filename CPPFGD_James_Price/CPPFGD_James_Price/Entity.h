@@ -8,6 +8,7 @@ class Entity {
 private:
 	bool movable; //Whether the object is stationary
 	bool damagable; //Use health or not
+	bool alive;
 	float health;
 	float x, y;
 	float angle;
@@ -28,6 +29,8 @@ public:
 	void Move(float _movement[2]);
 	void SetAngle(float _angle);
 	float GetAngle();
+	bool GetLifeState();
+	void SetLifeState(bool _state);
 
 	int GetOriginX();
 	int GetOriginY();
@@ -39,7 +42,8 @@ public:
 		if (damagable) {
 			std::cout << "Entity took damage" << std::endl;
 			health -= _damage;
-			return health > 0;
+			alive = health > 0;
+			return alive;
 		}
 		return true;
 	}

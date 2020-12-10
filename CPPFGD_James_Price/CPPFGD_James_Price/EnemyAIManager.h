@@ -3,6 +3,11 @@
 #include "Player.h"
 #include <vector>
 
+#define PI 3.14159265
+
+#define WALKSPEED 0.1
+#define RUNSPEED 0.3
+
 using namespace std;
 
 class EnemyAIManager {
