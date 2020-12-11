@@ -2,6 +2,7 @@
 #include "Container.h"
 #include "Player.h"
 #include <vector>
+#include <map>
 
 #define PI 3.14159265
 
@@ -9,6 +10,12 @@
 #define RUNSPEED 0.3
 
 using namespace std;
+
+enum EnemyState {
+	STATIONARY,
+	CHASE,
+	EVADE
+};
 
 class EnemyAIManager {
 public:
@@ -23,4 +30,5 @@ public:
 private:
 	 vector<Container*> enemies;
 	 Player* player;
+	 EnemyState* enemyStates;
 };

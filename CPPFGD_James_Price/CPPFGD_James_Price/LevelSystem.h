@@ -35,6 +35,10 @@ private:
 	SDL_Rect src, dest;
 
 	SDL_Texture* grass;
+	SDL_Texture* tile;
+	SDL_Texture* bush;
+	SDL_Texture* glass_hor;
+	SDL_Texture* glass_ver;
 
 	int level[20][25];
 
