@@ -91,3 +91,28 @@ void LevelSystem::DrawMap()
 		}
 	}
 }
+
+int LevelSystem::GetTileFromXY(int _x, int _y) {
+	int xIndex = (int)_x / TILESIZE;
+	int yIndex = (int)_y / TILESIZE;
+	if (xIndex >= xLength || yIndex >= yLength) {
+		std::cout << "Bullet out of map range" << std::endl;
+		//returns the default solid tile type
+		return 1;
+	}
+	return levelData[yIndex][xIndex];
+}
+
+bool LevelSystem::CheckTileSolidity(int _x, int _y)
+{
+	int tileNumber = GetTileFromXY(_x, _y);
+	switch (tileInteraction[tileNumber]) {
+	case SOLID:
+		return true;
+		break;
+	default:
+		return false;
+		break;
+	}
+	return false;
+}

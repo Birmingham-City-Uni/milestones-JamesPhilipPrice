@@ -2,6 +2,7 @@
 #include <map>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <iostream>
 
 #define TILESIZE 32;
 
@@ -26,6 +27,9 @@ class LevelSystem {
 public:
 	LevelSystem(SDL_Renderer* _renderer);
 	~LevelSystem();
+	
+	int GetTileFromXY(int _x, int _y);
+	bool CheckTileSolidity(int _x, int _y);
 
 	void LoadMap(int _levelArray[20][25]);
 	void DrawMap();
@@ -41,6 +45,8 @@ private:
 	SDL_Texture* glass_ver;
 
 	int level[20][25];
+	int xLength = 20;
+	int yLength = 25;
 
 	std::map<int, interactability> tileInteraction = {
 		{0 , OPEN},

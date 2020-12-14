@@ -8,13 +8,14 @@
 #include "Player.h"
 #include "Target.h"
 #include "EnemyAIManager.h"
+#include "LevelSystem.h"
 #include "Keys.h"
 
 #define PI 3.14159265
 
 class BulletManager {
 public:
-	BulletManager(SDL_Renderer* _renderer, Player* _player, EnemyAIManager* _enemies) : renderer(_renderer), player(_player), enemyManager(_enemies) {}
+	BulletManager(SDL_Renderer* _renderer, Player* _player, EnemyAIManager* _enemies, LevelSystem* _level) : renderer(_renderer), player(_player), enemyManager(_enemies), levelSystem(_level) {}
 
 	struct Bullet {
 		float x, y, rotation, distance;
@@ -63,6 +64,13 @@ public:
 					continue;
 				}
 			}
+
+			//Checks the current tiles that the bullets are on to see if they are solid tiles
+			//Solid tiles that destroy bullets will return true
+			if (levelSystem->CheckTileSolidity(b.x, b.y)) {
+				b.distance = 1000;
+				std::cout << "Bullet collided with a solid tile and needs to be destroyed!" << std::endl;
+			}
 			
 		}
 
@@ -89,6 +97,7 @@ private:
 	SDL_Texture* bulletTexture;
 	Player* player;
 	EnemyAIManager* enemyManager;
+	LevelSystem* levelSystem;
 	std::vector<Bullet> bullets;
 	const int SHOOT_TIMER_MS = 300;
 	const int BULLET_VELOCITY = 1;

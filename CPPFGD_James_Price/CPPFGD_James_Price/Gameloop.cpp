@@ -49,7 +49,7 @@ bool Gameloop::Init() {
 
 	enemyManager = new EnemyAIManager(1, renderer, player);
 
-	bulletManager = new BulletManager(renderer, player, enemyManager);
+	bulletManager = new BulletManager(renderer, player, enemyManager, level);
 	bulletManager->Init();
 
 	return true;
