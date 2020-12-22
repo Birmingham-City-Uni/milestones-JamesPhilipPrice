@@ -45,8 +45,8 @@ private:
 	SDL_Texture* glass_ver;
 
 	int level[20][25];
-	int xLength = 20;
-	int yLength = 25;
+	int xLength = 25;
+	int yLength = 20;
 
 	std::map<int, interactability> tileInteraction = {
 		{0 , OPEN},

@@ -8,7 +8,7 @@ EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player*
 	//Create as many enemies as needed and set each of their states
 	for (int i = 0; i < _enemyCount; i++) {
 		enemies.push_back(new Container(50, 50, "assets/enemy.png", _renderer, true, true, 100));
-		this->enemyStates[i] = CHASE;
+		this->enemyStates[i] = STATIONARY;
 	}
 	for (auto& i : enemies) {
 		i->SetLifeState(true);

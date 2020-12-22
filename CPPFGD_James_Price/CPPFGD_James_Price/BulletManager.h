@@ -12,6 +12,7 @@
 #include "Keys.h"
 
 #define PI 3.14159265
+#define PLAYERID 69
 
 class BulletManager {
 public:
@@ -19,6 +20,7 @@ public:
 
 	struct Bullet {
 		float x, y, rotation, distance;
+		int shooterID;
 	};
 
 	void Init() {
@@ -33,7 +35,7 @@ public:
 				std::cout << "Shooting!" << std::endl;
 				float x = player->GetOriginX();
 				float y = player->GetOriginY();
-				bullets.push_back(Bullet{ x, y, player->GetAngle(), 0.0f });
+				bullets.push_back(Bullet{ x, y, player->GetAngle(), 0.0f, PLAYERID });
 				lastShot = SDL_GetTicks();
 			}
 		}
@@ -48,6 +50,14 @@ public:
 
 			SDL_Rect bulletRect = {b.x, b.y, 10, 10};
 			SDL_Rect nullRect;
+			//Check the player for a bullet collision if the bullet was not sent by the player
+			if(b.shooterID != PLAYERID){
+				if (SDL_IntersectRect(&bulletRect, player->GetEntityRect(), &nullRect)) {
+					player->TakeDamage(10);
+					std::cout << "The player was shot!" << std::endl;
+					b.distance = 1000;
+				}
+			}
 			//Check all of the enemies
 			for (auto& i : enemyManager->GetEnemies()) {
 				if (SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
