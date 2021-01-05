@@ -20,3 +20,9 @@ I have done an initial code profile to get an idea of how the game's performance
 
 ## Update: 05/01/21
 I have implemented a basic vision cone system for the enemy AI and almost completed a ray-casting-like system for detecting if there is anything obstruction the view of the AI looking at the player
+
+## Issue found
+There is a huge performance issue with the edge detection system. currently the way that edges are managed and calculated is draining system performance and tanking the FPS of the game. This was due to the edge detection calculating every edge of every tile in range of the AI, as well as the fact that each tile is processed individually so they all have 4 edges, which exponentially increases complexity with more tiles. Bellow is an example and the solution planned to fix the issues:
+<img src="Documentation_assets/diagrams/demo.png?raw=true"/>
+
+The solution would require edges being precalculated for the game meaning instead of each tile having 4 edges that are calculated on the fly, the entire map would have a constant set of edges that define the visible area and they would not need to be calculated on the fly, meaning there would be less CPU overhead during the games runtime and significantly less edges used.
