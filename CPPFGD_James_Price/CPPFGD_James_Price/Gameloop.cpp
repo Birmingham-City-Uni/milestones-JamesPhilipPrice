@@ -47,7 +47,7 @@ bool Gameloop::Init() {
 
 	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
 
-	enemyManager = new EnemyAIManager(1, renderer, player);
+	enemyManager = new EnemyAIManager(1, renderer, player, level);
 
 	bulletManager = new BulletManager(renderer, player, enemyManager, level);
 	bulletManager->Init();

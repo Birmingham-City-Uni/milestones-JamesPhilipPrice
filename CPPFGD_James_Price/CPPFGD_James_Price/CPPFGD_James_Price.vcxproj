@@ -170,6 +170,7 @@
     <ClInclude Include="Keys.h" />
     <ClInclude Include="LevelSystem.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RayCasting.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="TextRenderer.h" />
   </ItemGroup>

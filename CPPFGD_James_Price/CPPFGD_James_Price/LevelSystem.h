@@ -3,8 +3,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
+#include <vector>
+
+#define PI 3.14159265
 
 #define TILESIZE 32;
+#define CENTEROFFSET 16;
 
 /*
 * Sumary of int to tile mapping
@@ -31,12 +35,16 @@ public:
 	int GetTileFromXY(int _x, int _y);
 	bool CheckTileSolidity(int _x, int _y);
 
+	std::vector <int> CheckForSolidTileProximity(SDL_Point* _position, int _triggerRadius, int _originAngle, int _fov);
+
 	void LoadMap(int _levelArray[20][25]);
 	void DrawMap();
 
 private:
 	SDL_Renderer* renderer;
 	SDL_Rect src, dest;
+
+	std::vector<int> selectedTiles;
 
 	SDL_Texture* grass;
 	SDL_Texture* tile;

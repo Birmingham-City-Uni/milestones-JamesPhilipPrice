@@ -1,10 +1,10 @@
 #include "LevelSystem.h"
 
 int levelData[20][25] = { 
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -115,4 +115,33 @@ bool LevelSystem::CheckTileSolidity(int _x, int _y)
 		break;
 	}
 	return false;
+}
+
+std::vector <int> LevelSystem::CheckForSolidTileProximity(SDL_Point* _position, int _triggerRadius, int _originAngle, int _fov) {
+	selectedTiles.clear();
+	for (int i = 0; i < yLength; i++) {
+		for (int j = 0; j < xLength; j++) {
+			//Check if the tile is masking or solid
+			if (tileInteraction[levelData[i][j]] == SOLID || tileInteraction[levelData[i][j]] == WALKABLE_MASKING) {
+				//The tile can block lines of sight, now check if it in the range of vision, I will use each corner of the of the tile and check them
+				//This gets the distance to the center of the tiles
+				int tileXCenter = j * TILESIZE + CENTEROFFSET;
+				int tileYCenter = i * TILESIZE + CENTEROFFSET;
+				int disX = _position->x - tileXCenter;
+				int disY = _position->y - tileYCenter;
+				if ((disX * disX) + (disY * disY) < _triggerRadius) {
+					//The tile is in the range of vision, now check if it is in the field of view
+					int angleToTile = ((atan2(disY, disX) * (180 / PI)) - 90) - _originAngle;
+					if (angleToTile < -180) {
+						angleToTile += 360;
+					}
+					if (angleToTile >= -(_fov / 2) && angleToTile <= (_fov / 2)) {
+						//The tile is in the field of view, add it to the vector
+						selectedTiles.push_back((xLength*i)+j);
+					}
+				}
+			}
+		}
+	}
+	return selectedTiles;
 }

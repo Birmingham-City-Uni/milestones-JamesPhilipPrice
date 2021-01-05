@@ -23,5 +23,6 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="EnemyAIManager.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="RayCasting.h" />
   </ItemGroup>
 </Project>
