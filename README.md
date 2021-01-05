@@ -17,3 +17,6 @@ Here is an example of how a class would be based off of the Entity class:
 ## Update: 10/12/20
 I have done an initial code profile to get an idea of how the game's performance is and the data is shown in the screenshot bellow:
 <img src="Documentation_assets/diagrams/codeProfile1.png?raw=true"/>
+
+## Update: 05/01/21
+I have implemented a basic vision cone system for the enemy AI and almost completed a ray-casting-like system for detecting if there is anything obstruction the view of the AI looking at the player
