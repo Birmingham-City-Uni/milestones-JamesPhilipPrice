@@ -36,10 +36,9 @@ private:
 	//Checking player visibility
 	int tileRadiusForCheck = 10;
 	bool CheckVisibilityToPlayer(Container* _enemy);
-	const int FOV = 70;
+	const int FOV = 80;
 	//RayCasting collision detection 
 	Ray* visibilityRay;
-	Edge* checkingEdge;
 	RayCastingTools* rayTools;
 	vector<Container*> enemies;
 	LevelSystem* level;

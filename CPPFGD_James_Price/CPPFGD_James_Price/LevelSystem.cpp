@@ -54,6 +54,111 @@ void LevelSystem::LoadMap(int _levelArray[20][25])
 			level[row][collumn] = levelData[row][collumn];
 		}
 	}
+	CreateEdgeMap();
+}
+
+void LevelSystem::CreateEdgeMap() {
+	for (int i = 0; i < yLength; i++) {
+		for (int j = 0; j < xLength; j++) {
+			//Check if the tile is solid or masking
+			if (tileInteraction[level[i][j]] == SOLID || tileInteraction[level[i][j]] == WALKABLE_MASKING) {
+				//The tile is able to obscure vision
+				//Check tile north
+				if (i > 0 && tileInteraction[level[i-1][j]] == SOLID || tileInteraction[level[i-1][j]] == WALKABLE_MASKING) {
+					//There is a tile above so no need to do anything
+				}
+				else {
+					//There needs to be an edge
+					if (j > 0 && levelEdgeRegister[i][j - 1][0] != NULL) {
+						//There is a tile to the left with a north edge we can use
+						edgePool[levelEdgeRegister[i][j - 1][0]].end.x = j * TILESIZE + TILESIZE;
+						levelEdgeRegister[i][j][0] = levelEdgeRegister[i][j - 1][0];
+					}
+					else {
+						//There isn't a tile to the left with a north edge, we need to make a new one
+						Edge temp;
+						temp.start.x = j * TILESIZE;
+						temp.start.y = i * TILESIZE;
+						temp.end = temp.start;
+						temp.end.x += TILESIZE;
+						edgePool.push_back(temp);
+						levelEdgeRegister[i][j][0] = (edgePool.size() - 1);
+					}
+				}
+
+				//Check tile west
+				if (j > 0 && tileInteraction[level[i][j - 1]] == SOLID || tileInteraction[level[i][j - 1]] == WALKABLE_MASKING) {
+					//There is a tile to the west so there is no need for an edge
+				}
+				else {
+					//There needs to be a western edge
+					if (i > 0 && levelEdgeRegister[i - 1][j][1] != NULL) {
+						//There is a tile above with a western edge that we can use
+						edgePool[levelEdgeRegister[i - 1][j][1]].end.y = i * TILESIZE + TILESIZE;
+						levelEdgeRegister[i][j][1] = levelEdgeRegister[i - 1][j][1];
+					}
+					else {
+						Edge temp;
+						temp.start.x = j * TILESIZE;
+						temp.start.y = i * TILESIZE;
+						temp.end = temp.start;
+						temp.end.y += TILESIZE;
+						edgePool.push_back(temp);
+						levelEdgeRegister[i][j][1] = (edgePool.size() - 1);
+					}
+				}
+
+				//Check tile east
+				if (j < xLength && tileInteraction[level[i][j + 1]] == SOLID || tileInteraction[level[i][j + 1]] == WALKABLE_MASKING) {
+					//There is a tile to the east so there is no need for an edge
+				}
+				else {
+					//There needs to be a eastern edge
+					if (i > 0 && levelEdgeRegister[i - 1][j][2] != NULL) {
+						//There is a tile above with a western edge that we can use
+						edgePool[levelEdgeRegister[i - 1][j][2]].end.y = i * TILESIZE + TILESIZE;
+						levelEdgeRegister[i][j][2] = levelEdgeRegister[i - 1][j][2];
+					}
+					else {
+						Edge temp;
+						temp.start.x = j * TILESIZE + TILESIZE;
+						temp.start.y = i * TILESIZE;
+						temp.end = temp.start;
+						temp.end.y += TILESIZE;
+						edgePool.push_back(temp);
+						levelEdgeRegister[i][j][2] = (edgePool.size() - 1);
+					}
+				}
+
+				//Check tile south
+				if (i < yLength && tileInteraction[level[i + 1][j]] == SOLID || tileInteraction[level[i + 1][j]] == WALKABLE_MASKING) {
+					//There is a tile to the south so there is no need for an edge;
+				}
+				else {
+					//There needs to be a southern edge
+					if (j > 0 && levelEdgeRegister[i][j - 1][3] != NULL) {
+						//There is a tile to the left with a north edge we can use
+						edgePool[levelEdgeRegister[i][j - 1][3]].end.x = j * TILESIZE + TILESIZE;
+						levelEdgeRegister[i][j][3] = levelEdgeRegister[i][j - 1][3];
+					}
+					else {
+						//There isn't a tile to the left with a north edge, we need to make a new one
+						Edge temp;
+						temp.start.x = j * TILESIZE;
+						temp.start.y = i * TILESIZE + TILESIZE;
+						temp.end = temp.start;
+						temp.end.x += TILESIZE;
+						edgePool.push_back(temp);
+						levelEdgeRegister[i][j][3] = (edgePool.size() - 1);
+					}
+				}
+			}
+		}
+	}
+	std::cout << "Number of edges created: " << edgePool.size() << std::endl;
+	for (auto& i : edgePool) {
+		std::cout << "Edge X: " << i.start.x << " Y: " << i.start.y << " to X: " << i.end.x << " Y: " << i.end.y << std::endl;
+	}
 }
 
 void LevelSystem::DrawMap()

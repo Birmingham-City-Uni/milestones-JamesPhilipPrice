@@ -32,32 +32,32 @@ public:
 	}
 
 	int CheckOrientation(SDL_Point _p, SDL_Point _q, SDL_Point _r) {
-		int value = (_q.y - _p.y) * (_r.x - _q.x) - (_q.x - _p.x) * (_r.y - _q.x);
+		int value = (_q.y - _p.y) * (_r.x - _q.x) - (_q.x - _p.x) * (_r.y - _q.y);
 
 		if (value == 0) return 0;
 		return (value > 0) ? 1 : 2;
 	}
 
-	bool CheckIntersection(Edge* _edgeOne, Edge* _edgeTwo) {
-		int o1 = CheckOrientation(_edgeOne->start, _edgeOne->end, _edgeTwo->start);
-		int o2 = CheckOrientation(_edgeOne->start, _edgeOne->end, _edgeTwo->end);
-		int o3 = CheckOrientation(_edgeTwo->start, _edgeTwo->end, _edgeOne->start);
-		int o4 = CheckOrientation(_edgeTwo->start, _edgeTwo->end, _edgeOne->end);
+	bool CheckIntersection(Edge* _one, Edge* _two) {
+		int o1 = CheckOrientation(_one->start, _one->end, _two->start);
+		int o2 = CheckOrientation(_one->start, _one->end, _two->end);
+		int o3 = CheckOrientation(_two->start, _two->end, _one->start);
+		int o4 = CheckOrientation(_two->start, _two->end, _one->end);
 
 		if (o1 != o2 && o3 != o4) {
 			return true;
 		}
 
-		if (o1 == 0 && CheckSegment(_edgeOne->start, _edgeTwo->start, _edgeOne->end)) {
+		if (o1 == 0 && CheckSegment(_one->start, _two->start, _one->end)) {
 			return true;
 		}
-		if (o2 == 0 && CheckSegment(_edgeOne->start, _edgeTwo->end, _edgeOne->end)) {
+		if (o2 == 0 && CheckSegment(_one->start, _two->end, _one->end)) {
 			return true;
 		}
-		if (o3 == 0 && CheckSegment(_edgeTwo->start, _edgeOne->start, _edgeTwo->end)) {
+		if (o3 == 0 && CheckSegment(_two->start, _one->start, _two->end)) {
 			return true;
 		}
-		if (o4 == 0 && CheckSegment(_edgeTwo->start, _edgeOne->end, _edgeTwo->end)) {
+		if (o4 == 0 && CheckSegment(_two->start, _one->end, _two->end)) {
 			return true;
 		}
 

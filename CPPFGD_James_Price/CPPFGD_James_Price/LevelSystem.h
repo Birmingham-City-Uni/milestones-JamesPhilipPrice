@@ -1,4 +1,5 @@
 #pragma once
+#include "RayCasting.h"
 #include <map>
 #include <SDL.h>
 #include <SDL_image.h>
@@ -38,7 +39,10 @@ public:
 	std::vector <int> CheckForSolidTileProximity(SDL_Point* _position, int _triggerRadius, int _originAngle, int _fov);
 
 	void LoadMap(int _levelArray[20][25]);
+	void CreateEdgeMap();
 	void DrawMap();
+
+	std::vector<Edge> edgePool;
 
 private:
 	SDL_Renderer* renderer;
@@ -53,6 +57,7 @@ private:
 	SDL_Texture* glass_ver;
 
 	int level[20][25];
+	int levelEdgeRegister[20][25][4];
 	int xLength = 25;
 	int yLength = 20;
 

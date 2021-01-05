@@ -7,7 +7,6 @@ EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player*
 	this->level = _level;
 	this->enemyStates = new EnemyState[_enemyCount];
 	this->visibilityRay = new Ray;
-	this->checkingEdge = new Edge;
 	this->rayTools = new RayCastingTools();
 
 	//PreCalulating distance variables
@@ -48,11 +47,11 @@ void EnemyAIManager::Update(bool _keysInp[])
 			//Checks what state the enemy is in and act accordingly
 			if (CheckVisibilityToPlayer(i)) {
 				//The Enemy can see the player
-				cout << "The player can be seen!" << endl;
+				enemyStates[stateIndex] = CHASE;
 			}
 			else {
 				//The enemy cannot see the player
-				cout << "The player can NOT be seen!" << endl;
+				enemyStates[stateIndex] = STATIONARY;
 			}
 			int deltaX;
 			int deltaY;
@@ -111,57 +110,17 @@ bool EnemyAIManager::CheckVisibilityToPlayer(Container* _enemy)
 			angleToPlayer += 360;
 		}
 		if (angleToPlayer >= -(FOV / 2) && angleToPlayer <= (FOV / 2)) {
-			//The player is in the field of view, we need to check for obstructions
-			tempPos->x = _enemy->GetOriginX();
-			tempPos->y = _enemy->GetOriginY();
-			vector<int> selectedTiles =  level->CheckForSolidTileProximity(tempPos, tileRadiusForCheck, _enemy->GetAngle(), FOV);
-			//Cast a ray to the player
-			visibilityRay->edge.start = *tempPos;
+			//Player is in the FOV we need to check for any obstructions
+			visibilityRay->edge.start.x = _enemy->GetOriginX();
+			visibilityRay->edge.start.y = _enemy->GetOriginY();
 			visibilityRay->edge.end.x = player->GetOriginX();
 			visibilityRay->edge.end.y = player->GetOriginY();
 			visibilityRay->intersected = false;
-			//Loop through all of the selected tiles
-			cout << "Number of obscuring tiles: " << selectedTiles.size() << endl;
-			for (int i = 0; i < selectedTiles.size(); i++) {
-				//Get the top left corner first
-				int x = selectedTiles[i] % 25;
-				int y = floor(selectedTiles[i] / 25);
-				x *= TILESIZE;
-				y *= TILESIZE;
-				//Check top edge
-				checkingEdge->start.x = x;
-				checkingEdge->start.y = y;
-				checkingEdge->end.x = x+TILESIZE;
-				checkingEdge->end.y = y;
-				visibilityRay->intersected =  rayTools->CheckIntersection(&visibilityRay->edge, checkingEdge);
-				if (visibilityRay->intersected) {
-					break;
-				}
-				//Check bottom edge
-				checkingEdge->start.x = x;
-				checkingEdge->start.y = y+TILESIZE;
-				checkingEdge->end.x = x + TILESIZE;
-				checkingEdge->end.y = y + TILESIZE;
-				visibilityRay->intersected = rayTools->CheckIntersection(&visibilityRay->edge, checkingEdge);
-				if (visibilityRay->intersected) {
-					break;
-				}
-				//Check left edge
-				checkingEdge->start.x = x;
-				checkingEdge->start.y = y;
-				checkingEdge->end.x = x;
-				checkingEdge->end.y = y + TILESIZE;
-				visibilityRay->intersected = rayTools->CheckIntersection(&visibilityRay->edge, checkingEdge);
-				if (visibilityRay->intersected) {
-					break;
-				}
-				//Check right edge
-				checkingEdge->start.x = x + TILESIZE;
-				checkingEdge->start.y = y;
-				checkingEdge->end.x = x + TILESIZE;
-				checkingEdge->end.y = y + TILESIZE;
-				visibilityRay->intersected = rayTools->CheckIntersection(&visibilityRay->edge, checkingEdge);
-				if (visibilityRay->intersected) {
+
+			for (auto& i : level->edgePool) {
+				bool result = rayTools->CheckIntersection(&visibilityRay->edge, &i);
+				if (result) {
+					visibilityRay->intersected = true;
 					break;
 				}
 			}
