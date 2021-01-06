@@ -10,6 +10,8 @@ public:
 
 	void ProcessInput(bool _keys[], float _mX, float _mY);
 
+	void DamagePlayer(float _damage);
+
 private:
 	int mDeltaX, mDeltaY;
 	const int ID = 69;

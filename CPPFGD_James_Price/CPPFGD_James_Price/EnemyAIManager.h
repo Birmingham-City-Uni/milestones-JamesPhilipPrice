@@ -9,7 +9,7 @@
 
 #define PI 3.14159265
 
-#define WALKSPEED 0.1
+#define WALKSPEED 0.05
 #define RUNSPEED 0.3
 
 #define TILESIZE 32
@@ -28,6 +28,7 @@ public:
 	~EnemyAIManager();
 
 	vector<Container*> GetEnemies();
+	bool GetEnemyFiring(int _index);
 
 	void Update(bool _keysInp[]);
 	void Draw();
@@ -36,7 +37,7 @@ private:
 	//Checking player visibility
 	int tileRadiusForCheck = 10;
 	bool CheckVisibilityToPlayer(Container* _enemy);
-	const int FOV = 80;
+	const int FOV = 90;
 	//RayCasting collision detection 
 	Ray* visibilityRay;
 	RayCastingTools* rayTools;

@@ -38,6 +38,12 @@ vector<Container*> EnemyAIManager::GetEnemies()
 	return enemies;
 }
 
+bool EnemyAIManager::GetEnemyFiring(int _index)
+{
+	if (enemyStates[_index] == CHASE) return true;
+	return false;
+}
+
 void EnemyAIManager::Update(bool _keysInp[])
 {
 	//Run through each enemy and if they are alive make them do living people things, if not do not living people things

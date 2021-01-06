@@ -5,6 +5,7 @@ Entity::Entity(int _startX, int _startY, const char* _textureLocation, SDL_Rende
 	//Set the basic attribute of the entity
 	movable = _movable;
 	damagable = _damagable;
+	startingHealth = _health;
 	health = _health;
 	dimensions.x = x = _startX;
 	dimensions.y = y = _startY;

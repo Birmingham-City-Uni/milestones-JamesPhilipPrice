@@ -10,6 +10,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Target.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gameloop.h" />
@@ -24,5 +25,6 @@
     <ClInclude Include="EnemyAIManager.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="RayCasting.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
 </Project>

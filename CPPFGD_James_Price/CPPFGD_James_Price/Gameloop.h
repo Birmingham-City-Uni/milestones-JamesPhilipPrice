@@ -6,6 +6,7 @@
 #include "Target.h"
 #include "BulletManager.h"
 #include "EnemyAIManager.h"
+#include "UIManager.h"
 
 class Gameloop {
 public:
@@ -24,6 +25,7 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	TextRenderer* textRenderer;
+	UIManager* uiManager;
 	LevelSystem* level;
 	Player* player;
 	Target* target;

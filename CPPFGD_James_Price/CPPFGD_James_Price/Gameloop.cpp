@@ -45,6 +45,8 @@ bool Gameloop::Init() {
 
 	level = new LevelSystem(renderer);
 
+	uiManager = new UIManager(renderer);
+
 	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
 
 	enemyManager = new EnemyAIManager(1, renderer, player, level);
@@ -152,6 +154,7 @@ void Gameloop::Draw()
 	player->Draw();
 	enemyManager->Draw();
 	bulletManager->Draw();
+	uiManager->Draw();
 	std::string scoreString = "Score: " + std::to_string(score);
 	textRenderer->RenderString(scoreString, 1100, 640);
 

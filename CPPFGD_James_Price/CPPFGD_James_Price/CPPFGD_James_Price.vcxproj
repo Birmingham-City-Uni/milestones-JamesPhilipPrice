@@ -159,6 +159,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Target.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletManager.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="RayCasting.h" />
     <ClInclude Include="Target.h" />
     <ClInclude Include="TextRenderer.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

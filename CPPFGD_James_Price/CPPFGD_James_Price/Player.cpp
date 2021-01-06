@@ -41,3 +41,10 @@ void Player::ProcessInput(bool _keys[], float _mX, float _mY)
 	SetAngle((atan2(mDeltaY, mDeltaX) * (180/PI))-90);
 
 }
+
+void Player::DamagePlayer(float _damage)
+{
+	std::cout << "Damaging player" << std::endl;
+	TakeDamage(_damage);
+}
+

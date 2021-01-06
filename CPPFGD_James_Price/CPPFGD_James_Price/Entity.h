@@ -9,6 +9,7 @@ private:
 	bool movable; //Whether the object is stationary
 	bool damagable; //Use health or not
 	bool alive;
+	float startingHealth;
 	float health;
 	float x, y;
 	float angle;

@@ -12,7 +12,8 @@
 #include "Keys.h"
 
 #define PI 3.14159265
-#define PLAYERID 69
+#define PLAYERID 0
+#define ENEMYID 1
 
 class BulletManager {
 public:
@@ -27,6 +28,9 @@ public:
 		SDL_Surface* surface = IMG_Load("assets/bullet.png");
 		this->bulletTexture = SDL_CreateTextureFromSurface(this->renderer, surface);
 		SDL_FreeSurface(surface);
+		for (int i = 0; i < enemyManager->GetEnemies().size(); i++) {
+			enemyLastShot.push_back(0);
+		}
 	}
 
 	void ProcessInput(bool _keys[]) {
@@ -41,7 +45,22 @@ public:
 		}
 	}
 
+	void ProcessEnemies() {
+		int index = 0;
+		for (auto& i : enemyManager->GetEnemies()) {
+			if (enemyManager->GetEnemyFiring(index) && SDL_GetTicks() - enemyLastShot[index] > SHOOT_TIMER_MS) {
+				float x = i->GetOriginX();
+				float y = i->GetOriginY();
+				bullets.push_back(Bullet{ x, y, i->GetAngle(), 0.0f, ENEMYID });
+				enemyLastShot[index] = SDL_GetTicks();
+			}
+			index++;
+		}
+	}
+
 	int Update() {
+		//Process the enemy shooting
+		ProcessEnemies();
 		int scoreVal = 0;
 		for (auto& b : bullets) {
 			b.x += sin(b.rotation * PI / 180.0f) * BULLET_VELOCITY;
@@ -53,14 +72,14 @@ public:
 			//Check the player for a bullet collision if the bullet was not sent by the player
 			if(b.shooterID != PLAYERID){
 				if (SDL_IntersectRect(&bulletRect, player->GetEntityRect(), &nullRect)) {
-					player->TakeDamage(10);
+					player->DamagePlayer(10);
 					std::cout << "The player was shot!" << std::endl;
 					b.distance = 1000;
 				}
 			}
 			//Check all of the enemies
 			for (auto& i : enemyManager->GetEnemies()) {
-				if (SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
+				if (b.shooterID != ENEMYID && SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
 					//Deals damage to the enemy and checks if it is dead
 					if (!(i->TakeDamage(10))) {
 						i->UnlockChest();
@@ -112,4 +131,5 @@ private:
 	const int SHOOT_TIMER_MS = 300;
 	const int BULLET_VELOCITY = 1;
 	unsigned int lastShot = 0;
+	std::vector<unsigned int> enemyLastShot;
 };
