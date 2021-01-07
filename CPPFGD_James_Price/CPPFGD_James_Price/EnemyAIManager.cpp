@@ -100,7 +100,7 @@ void EnemyAIManager::CreateNewEnemy()
 	cout << "Created new enemy. Number of enemy entities in world: " << enemies.size() << endl;
 }
 
-void EnemyAIManager::Update(bool _keysInp[])
+bool EnemyAIManager::Update(bool _keysInp[])
 {
 	//Run through each enemy and if they are alive make them do living people things, if not do not living people things
 	int stateIndex = 0;
@@ -169,9 +169,18 @@ void EnemyAIManager::Update(bool _keysInp[])
 			if (i->CheckForCloseCondition(this->player)) {
 				ui->SetDrawPlaceHolderVal(true);
 			}
+			if (i->IsChestOpen()) {
+				//Check for a key press to take stuff
+				if (_keysInp[T]) {
+					if (i->TryTakeNextItem()) {
+						player->IncrementLoot();
+					}
+				}
+			}
 		}
 		stateIndex++;
 	}
+	return !ui->GetDrawPlaceHolderVal();
 }
 
 void EnemyAIManager::Draw()
@@ -189,26 +198,84 @@ void EnemyAIManager::Draw()
 			}
 			if (angleToEnemy >= -(FOV) && angleToEnemy <= (FOV)) {
 				//The ai is in the player's fov need to check for obstruction
+				//Intersection flags forall four rays cast
+				bool intersectionFlags[4];
+				//Ray one (top left corner)
 				visibilityRay->edge.start.x = player->GetOriginX();
 				visibilityRay->edge.start.y = player->GetOriginY();
-				visibilityRay->edge.end.x = i->GetOriginX();
-				visibilityRay->edge.end.y = i->GetOriginY();
+				visibilityRay->edge.end.x = i->GetEntityRect()->x;
+				visibilityRay->edge.end.y = i->GetEntityRect()->y;
 				visibilityRay->intersected = false;
 
 				for (auto& j : level->edgePool) {
 					bool result = rayTools->CheckIntersection(&visibilityRay->edge, &j);
 					if (result) {
 						visibilityRay->intersected = true;
+						intersectionFlags[0] = true;
 						break;
 					}
 				}
-				if (!visibilityRay->intersected) {
-					//Draw the enemy's vision cone
-					dest.x = i->GetOriginX() - src.w / 2;
-					dest.y = i->GetOriginY() - src.h / 2;
-					SDL_RenderCopyEx(this->renderer, this->viewCone, &src, &dest, i->GetAngle(), NULL, SDL_FLIP_NONE);
-					//Draw the enemy on top
-					i->Draw();
+
+				//Ray two (top right corner)
+				visibilityRay->edge.start.x = player->GetOriginX();
+				visibilityRay->edge.start.y = player->GetOriginY();
+				visibilityRay->edge.end.x = i->GetEntityRect()->x + i->GetEntityRect()->w;
+				visibilityRay->edge.end.y = i->GetEntityRect()->y;
+				visibilityRay->intersected = false;
+
+				for (auto& j : level->edgePool) {
+					bool result = rayTools->CheckIntersection(&visibilityRay->edge, &j);
+					if (result) {
+						visibilityRay->intersected = true;
+						intersectionFlags[1] = true;
+						break;
+					}
+				}
+
+				//Ray three (bottom left corner)
+				visibilityRay->edge.start.x = player->GetOriginX();
+				visibilityRay->edge.start.y = player->GetOriginY();
+				visibilityRay->edge.end.x = i->GetEntityRect()->x;
+				visibilityRay->edge.end.y = i->GetEntityRect()->y + i->GetEntityRect()->h;
+				visibilityRay->intersected = false;
+
+				for (auto& j : level->edgePool) {
+					bool result = rayTools->CheckIntersection(&visibilityRay->edge, &j);
+					if (result) {
+						visibilityRay->intersected = true;
+						intersectionFlags[2] = true;
+						break;
+					}
+				}
+
+				//Ray four (bottom right corner)
+				visibilityRay->edge.start.x = player->GetOriginX();
+				visibilityRay->edge.start.y = player->GetOriginY();
+				visibilityRay->edge.end.x = i->GetEntityRect()->x + i->GetEntityRect()->w;
+				visibilityRay->edge.end.y = i->GetEntityRect()->y + i->GetEntityRect()->h;
+				visibilityRay->intersected = false;
+
+				for (auto& j : level->edgePool) {
+					bool result = rayTools->CheckIntersection(&visibilityRay->edge, &j);
+					if (result) {
+						visibilityRay->intersected = true;
+						intersectionFlags[3] = true;
+						break;
+					}
+				}
+				for (int index = 0; index < 4; index++) {
+					if (intersectionFlags[index]) {
+						//At least on of the corners can be seen, draw the AI then break from the loop
+						//Draw the enemy's vision cone
+						if (i->GetLifeState()) {
+							dest.x = i->GetOriginX() - src.w / 2;
+							dest.y = i->GetOriginY() - src.h / 2;
+							SDL_RenderCopyEx(this->renderer, this->viewCone, &src, &dest, i->GetAngle(), NULL, SDL_FLIP_NONE);
+						}
+						//Draw the enemy on top
+						i->Draw();
+						break;
+					}
 				}
 			}
 		}

@@ -15,6 +15,9 @@ public:
 	void SetDrawPlaceHolderVal(bool _val) {
 		drawInv = _val;
 	}
+	bool GetDrawPlaceHolderVal() {
+		return drawInv;
+	}
 
 	void Draw();
 

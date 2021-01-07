@@ -85,6 +85,35 @@ bool Container::CheckForCloseCondition(Player* _player)
 	return false;
 }
 
+bool Container::IsChestOpen()
+{
+	return open;
+}
+
+bool Container::TryTakeNextItem()
+{
+	if (SDL_GetTicks() - lastItemTake > itemTakeWaitTicks) {
+		//remove the next item in the list
+		bool removed = false;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (inventory[i][j] != Empty) {
+					inventory[i][j] = Empty;
+					removed = true;
+					break;
+				}
+			}
+			if (removed) {
+				break;
+			}
+		}
+		//Return
+		lastItemTake = SDL_GetTicks();
+		return removed;
+	}
+	return false;
+}
+
 int Container::GetInvetorySlotItem(int _x, int _y)
 {
 	return (int)inventory[_y][_x];
@@ -93,7 +122,6 @@ int Container::GetInvetorySlotItem(int _x, int _y)
 void Container::DrawInv()
 {
 	if (open) {
-		std::cout << "Need to draw enemy inv" << std::endl;
 		//We need to get the item at the specific inventory slot
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 6; j++) {

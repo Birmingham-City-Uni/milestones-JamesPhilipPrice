@@ -37,3 +37,17 @@ I have complete multiple jobs for the game:
 
 Currently when the player is not looking at the AI they do not appear on the screen. This means that when the player break's theie line of sight with any AI enemies, they have to guess where they are.
 Part of the vision cone system is built upon Ray casting and line intersection detection, but the maps have different edge layouts for things like, vision obscurity, and physical collision.
+
+## Update 07/01/21 12:19
+I have done a final performance profile to check that the CPU usage is stable throughout different circumstances in the game and the CPU usage seems to be stable and remain low throughout. Originally there was a spike in CPU usage whenever the enemies were looking for the player due to the way that everything was calculated on the fly, but with the new system using precalculated collision layouts and drastically less edges, there is stable performance when the AI enemies are looking for the player. Below is the screenshot of the profiler:
+<img src="Documentation_assets/diagrams/codeProfile_Release.png?raw=true"/>
+
+## Issue found 07/01/21 12:32
+While testing the game I found that if the enemy is hugging the wall or somthing that obscures vision the player will not be able to see them, even if looking directly at them. This is like due to the visibility ray being cast to the center of the enemy, which can cause false intersections with the wall's edges. To remedy this I plan to instead shoot 4 rays to the enemy (one for each corner) of the enemy rect.
+
+## Issue fixed 07/01/21 12:43
+I implemented the sujested solution and it works fantastically with an insignificant performance change. The player is now able to see the enemy even when they are hugging a wall. Just to be sure I profiled the performance again to make sure that using 4 rays wouldn't decrease stability:
+<img src="Documentation_assets/diagrams/codeProfile_Release2.png?raw=true"/>
+
+## Update 07/01/21 16:02
+I have added the finishing touches to the game and overall I'm happy with how it has turned out given the timescale it was made in, so I'm going to start to develop the video for the game.

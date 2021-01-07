@@ -40,6 +40,9 @@ bool Gameloop::Init() {
 		return false;
 	}
 	
+	//Set the random seed to jazz thing up a little
+	srand(time(0));
+
 	//CREATE THE MAIN GAME ELEMENTS
 	textRenderer = new TextRenderer(renderer, "assets/fonts/Russian.ttf", 40);
 
@@ -85,6 +88,9 @@ bool Gameloop::ProcessInput() {
 			case SDLK_e:
 				keys[E] = true;
 				break;
+			case SDLK_t:
+				keys[T] = true;
+				break;
 			case SDLK_LSHIFT:
 				keys[SHIFT] = true;
 			default:
@@ -107,6 +113,9 @@ bool Gameloop::ProcessInput() {
 				break;
 			case SDLK_e:
 				keys[E] = false;
+				break;
+			case SDLK_t:
+				keys[T] = false;
 				break;
 			case SDLK_LSHIFT:
 				keys[SHIFT] = false;
@@ -143,8 +152,8 @@ bool Gameloop::ProcessInput() {
 }
 
 void Gameloop::Update() {
-	player->ProcessInput(keys, mouseX, mouseY);
-	enemyManager->Update(keys);
+	score += player->ProcessInput(keys, mouseX, mouseY);
+	looting = enemyManager->Update(keys);
 	bulletManager->ProcessInput(keys);
 	score += bulletManager->Update();
 	player->CheckLifeState(&score);
@@ -156,15 +165,21 @@ void Gameloop::Draw()
 	SDL_RenderClear(renderer);
 	//Render stuff
 	level->DrawMap();
-	player->Draw();
+	int loot = player->Draw();
 	enemyManager->Draw();
 	bulletManager->Draw();
 	uiManager->Draw();
 	enemyManager->DrawInvs();
+
+	std::string lootString = "Loot: " + std::to_string(loot);
 	std::string scoreString = "Score: " + std::to_string(score);
-	textRenderer->RenderString(scoreString, 1100, 660);
+	textRenderer->RenderString(lootString, 256, 660);
+	textRenderer->RenderString(scoreString, 950, 660);
 	if (player->CheckIfExtracting()) {
-		textRenderer->RenderString("Extracting...", 800, 660);
+		textRenderer->RenderString("Extracting...", 600, 660);
+	}
+	else if (looting) {
+		textRenderer->RenderString("Looting...", 800, 660);
 	}
 
 	//Push the frame to the window

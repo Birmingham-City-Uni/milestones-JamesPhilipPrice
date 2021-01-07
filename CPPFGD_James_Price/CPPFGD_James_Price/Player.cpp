@@ -23,7 +23,7 @@ Player::~Player() {
 
 }
 
-void Player::ProcessInput(bool _keys[], float _mX, float _mY)
+int Player::ProcessInput(bool _keys[], float _mX, float _mY)
 {
 	//Process Movement
 	float direction[2] = { 0, 0 };
@@ -64,9 +64,15 @@ void Player::ProcessInput(bool _keys[], float _mX, float _mY)
 	mDeltaY = GetOriginY() - _mY;
 	SetAngle((atan2(mDeltaY, mDeltaX) * (180/PI))-90);
 
+
+	int temp = scoreBank;
+	if (temp > 0) {
+		scoreBank = 0;
+	}
+	return temp;
 }
 
-void Player::Draw()
+int Player::Draw()
 {
 	//Draw vision cone
 	dest.x = GetOriginX() - src.w / 2;
@@ -76,6 +82,7 @@ void Player::Draw()
 	//Draw extraction
 	SDL_RenderCopy(this->renderer, this->extractTexture, &extractSrc, &extractDest);
 	Entity::Draw();
+	return lootCount;
 }
 
 void Player::DamagePlayer(float _damage)
@@ -107,6 +114,7 @@ bool Player::CheckIfExtracting()
 		timeLeftToExtract -= timeReductionAmount;
 		if (timeLeftToExtract <= 0) {
 			//Reset player but save score
+			scoreBank += (lootCount * lootValue);
 			ResetPlayer();
 		}
 		return true;
@@ -129,6 +137,13 @@ void Player::CheckLifeState(int* _score)
 void Player::ResetPlayer()
 {
 	ResetHealth();
+	ui->UpdateHealthBar(GetHealthPercentage());
 	ResetPosition();
+	lootCount = 0;
+}
+
+void Player::IncrementLoot()
+{
+	lootCount++;
 }
 

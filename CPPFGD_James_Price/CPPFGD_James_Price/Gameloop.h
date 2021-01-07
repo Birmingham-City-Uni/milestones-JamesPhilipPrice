@@ -22,6 +22,7 @@ private:
 	const int WINDOW_WIDTH = 1280;
 	const int WINDOW_HEIGHT = 720;
 	int mouseX, mouseY;
+	bool looting;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	TextRenderer* textRenderer;

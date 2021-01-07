@@ -8,6 +8,7 @@ enum KeyStates {
 	S,
 	D,
 	E,
+	T,
 	SHIFT,
 	MOUSELEFT,
 	MOUSERIGHT,

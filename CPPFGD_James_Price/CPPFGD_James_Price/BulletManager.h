@@ -29,15 +29,18 @@ public:
 		SDL_Surface* surface = IMG_Load("assets/bullet.png");
 		this->bulletTexture = SDL_CreateTextureFromSurface(this->renderer, surface);
 		SDL_FreeSurface(surface);
+		//Set up all bullets
+		for (int i = 0; i < 100; i++) {
+			bullets[i].active = false;
+		}
 		for (int i = 0; i < enemyManager->GetEnemies().size(); i++) {
 			enemyLastShot.push_back(0);
 		}
 	}
 
 	int GetFirstAvailableBullet() {
-		int index = 0;
-		for (auto& b : bullets) {
-			if (!b.active) return index;
+		for (int i = 0; i < 100; i++) {
+			if (bullets[i].active == false) return i;
 		}
 		return -1;
 	}
@@ -100,23 +103,25 @@ public:
 					if (SDL_IntersectRect(&bulletRect, player->GetEntityRect(), &nullRect)) {
 						player->DamagePlayer(10);
 						std::cout << "The player was shot!" << std::endl;
-						b.distance = 1000;
+						b.distance = 10000;
 					}
 				}
 				//Check all of the enemies
 				for (auto& i : enemyManager->GetEnemies()) {
 					if (b.shooterID != ENEMYID && SDL_IntersectRect(&bulletRect, i->GetEntityRect(), &nullRect)) {
 						//Deals damage to the enemy and checks if it is dead
-						if (!(i->TakeDamage(10))) {
-							i->UnlockChest();
-							std::cout << "The enemy has died and their inventory is now unlocked" << std::endl;
-							enemyManager->CreateNewEnemy();
+						if (i->GetLifeState()) {
+							if (!(i->TakeDamage(10))) {
+								i->UnlockChest();
+								std::cout << "The enemy has died and their inventory is now unlocked" << std::endl;
+								enemyManager->CreateNewEnemy();
+							}
+							scoreVal++;
+							b.distance = 10000;
+							break;
 						}
-						scoreVal++;
-						b.distance = 1000;
-						break;
 					}
-					if (b.distance >= 1000) {
+					if (b.distance >= 10000) {
 						continue;
 					}
 				}
@@ -124,11 +129,11 @@ public:
 				//Checks the current tiles that the bullets are on to see if they are solid tiles
 				//Solid tiles that destroy bullets will return true
 				if (levelSystem->CheckTileSolidity(b.x, b.y)) {
-					b.distance = 1000;
+					b.distance = 10000;
 					std::cout << "Bullet collided with a solid tile and needs to be destroyed!" << std::endl;
 				}
 			}
-			if (b.distance >= 1000) {
+			if (b.distance >= 10000) {
 				b.active = false;
 			}
 		}
@@ -140,7 +145,7 @@ public:
 		SDL_Point center = { 5, 5 };
 		for (auto& b : bullets) {
 			if (b.active) {
-				SDL_Rect dest = { b.x, b.y, 10, 10 };
+				SDL_Rect dest = { b.x, b.y, 8, 16 };
 				SDL_RenderCopyEx(renderer, bulletTexture, 0, &dest, b.rotation, &center, SDL_FLIP_NONE);
 			}
 		}

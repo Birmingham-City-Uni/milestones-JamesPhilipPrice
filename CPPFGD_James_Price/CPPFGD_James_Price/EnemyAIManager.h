@@ -7,6 +7,7 @@
 #include <vector>
 #include <cmath>
 #include <map>
+#include "Keys.h"
 
 #define PI 3.14159265
 
@@ -42,7 +43,7 @@ public:
 
 	void CreateNewEnemy();
 
-	void Update(bool _keysInp[]);
+	bool Update(bool _keysInp[]);
 	void Draw();
 	void DrawInvs();
 

@@ -15,12 +15,16 @@ public:
 	void UnlockChest();
 	bool CheckForOpenCondition(Player* _player, bool _keysInp[]);
 	bool CheckForCloseCondition(Player* _player);
+	bool IsChestOpen();
+	bool TryTakeNextItem();
 
 	int GetInvetorySlotItem(int _x, int _y);
 
 	void DrawInv();
 
 private:
+	int lastItemTake = 0;
+	int itemTakeWaitTicks = 500;
 	bool unlocked = true;
 	bool open;
 	SDL_Renderer* renderer;
