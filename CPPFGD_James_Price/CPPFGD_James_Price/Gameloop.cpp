@@ -47,9 +47,9 @@ bool Gameloop::Init() {
 
 	uiManager = new UIManager(renderer);
 
-	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100);
+	player = new Player(0, 0, "assets/player.png", renderer, true, true, 100, level, uiManager);
 
-	enemyManager = new EnemyAIManager(1, renderer, player, level);
+	enemyManager = new EnemyAIManager(2, renderer, player, level, uiManager);
 
 	bulletManager = new BulletManager(renderer, player, enemyManager, level);
 	bulletManager->Init();
@@ -85,6 +85,8 @@ bool Gameloop::ProcessInput() {
 			case SDLK_e:
 				keys[E] = true;
 				break;
+			case SDLK_LSHIFT:
+				keys[SHIFT] = true;
 			default:
 				break;
 			}
@@ -106,6 +108,8 @@ bool Gameloop::ProcessInput() {
 			case SDLK_e:
 				keys[E] = false;
 				break;
+			case SDLK_LSHIFT:
+				keys[SHIFT] = false;
 			default:
 				break;
 			}
@@ -143,6 +147,7 @@ void Gameloop::Update() {
 	enemyManager->Update(keys);
 	bulletManager->ProcessInput(keys);
 	score += bulletManager->Update();
+	player->CheckLifeState(&score);
 }
 
 void Gameloop::Draw()
@@ -155,6 +160,7 @@ void Gameloop::Draw()
 	enemyManager->Draw();
 	bulletManager->Draw();
 	uiManager->Draw();
+	enemyManager->DrawInvs();
 	std::string scoreString = "Score: " + std::to_string(score);
 	textRenderer->RenderString(scoreString, 1100, 640);
 

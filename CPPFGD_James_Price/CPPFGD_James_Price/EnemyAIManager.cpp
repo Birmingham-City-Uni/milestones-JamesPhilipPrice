@@ -1,13 +1,20 @@
 #include "EnemyAIManager.h"
 
-EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player* _player, LevelSystem* _level)
+EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player* _player, LevelSystem* _level, UIManager* _ui)
 {
 	//Player is holding a reference to the player object and the enemyStates holds the current behaviour state of all enemies in the manager
 	this->player = _player;
 	this->level = _level;
+	this->ui = _ui;
 	this->enemyStates = new EnemyState[_enemyCount];
 	this->visibilityRay = new Ray;
+	this->patrolVisibilityRay = new Ray;
 	this->rayTools = new RayCastingTools();
+	this->renderer = _renderer;
+
+	SDL_Surface* temp = IMG_Load("assets/visionCone.png");
+	viewCone = SDL_CreateTextureFromSurface(this->renderer, temp);
+	SDL_FreeSurface(temp);
 
 	//PreCalulating distance variables
 	tileRadiusForCheck *= 32;
@@ -16,8 +23,12 @@ EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player*
 
 	//Create as many enemies as needed and set each of their states
 	for (int i = 0; i < _enemyCount; i++) {
-		enemies.push_back(new Container(50, 50, "assets/enemy.png", _renderer, true, true, 100));
-		this->enemyStates[i] = STATIONARY;
+		SDL_Point temp;
+		FindValidSpawnPoint(&temp);
+		enemies.push_back(new Container(temp.x, temp.y, "assets/enemy.png", _renderer, true, true, 100, this->level));
+		enemyPatrolLocations.push_back(new SDL_Point());
+		SetOpenPathPos(&temp, enemyPatrolLocations[enemyPatrolLocations.size()-1]);
+		this->enemyStates[i] = PATROL;
 	}
 	for (auto& i : enemies) {
 		i->SetLifeState(true);
@@ -40,8 +51,43 @@ vector<Container*> EnemyAIManager::GetEnemies()
 
 bool EnemyAIManager::GetEnemyFiring(int _index)
 {
-	if (enemyStates[_index] == CHASE) return true;
+	if (enemies[_index]->GetLifeState() && enemyStates[_index] == CHASE) return true;
 	return false;
+}
+
+void EnemyAIManager::FindValidSpawnPoint(SDL_Point* _point)
+{
+	SetRandomPos(_point);
+	while (level->CheckTileSolidity(_point->x, _point->y)) {
+		SetRandomPos(_point);
+	}
+}
+
+void EnemyAIManager::SetOpenPathPos(SDL_Point* _start, SDL_Point* _target)
+{
+	patrolVisibilityRay->edge.start = *_start;
+	patrolVisibilityRay->intersected = false;
+	for (int i = 0; i < 10; i++) {
+		SetRandomPos(&patrolVisibilityRay->edge.end);
+		for (auto& j : level->collsionEdgePool) {
+			bool result = rayTools->CheckIntersection(&patrolVisibilityRay->edge, &j);
+			if (result) {
+				patrolVisibilityRay->intersected = true;
+				break;
+			}
+		}
+		if (!patrolVisibilityRay->intersected) {
+			break;
+		}
+	}
+	_target->x = patrolVisibilityRay->edge.end.x;
+	_target->y = patrolVisibilityRay->edge.end.y;
+}
+
+void EnemyAIManager::SetRandomPos(SDL_Point* _point)
+{
+	_point->x = rand() % (MAXXVAL + 1);
+	_point->y = rand() % (MAXYVAL + 1);
 }
 
 void EnemyAIManager::Update(bool _keysInp[])
@@ -57,7 +103,7 @@ void EnemyAIManager::Update(bool _keysInp[])
 			}
 			else {
 				//The enemy cannot see the player
-				enemyStates[stateIndex] = STATIONARY;
+				enemyStates[stateIndex] = PATROL;
 			}
 			int deltaX;
 			int deltaY;
@@ -82,15 +128,37 @@ void EnemyAIManager::Update(bool _keysInp[])
 				break;
 			case EVADE:
 				break;
+			case PATROL:
+				deltaX = i->GetOriginX() - enemyPatrolLocations[stateIndex]->x;
+				deltaY = i->GetOriginY() - enemyPatrolLocations[stateIndex]->y;
+				if ((deltaX * deltaX) + (deltaY * deltaY) < patrolPointReachedTrigger) {
+					//Change the patrol point target because the ai reached the target
+					SDL_Point temp = { i->GetOriginX(), i->GetOriginY() };
+					SetOpenPathPos(&temp, enemyPatrolLocations[stateIndex]);
+					deltaX = i->GetOriginX() - enemyPatrolLocations[stateIndex]->x;
+					deltaY = i->GetOriginY() - enemyPatrolLocations[stateIndex]->y;
+				}
+				newAngle = (atan2(deltaY, deltaX) * (180 / PI)) - 90;
+				i->SetAngle(newAngle);
+
+				//Move the ai
+				movement[0] = sin(newAngle * PI / 180.0f) * WALKSPEED;
+				movement[1] = -cos(newAngle * PI / 180.0f) * WALKSPEED;
+				i->Move(movement);
+				break;
 			default:
 				cout << "Is there somthing wrong with the enemy??" << endl;
 				break;
 			}
 		}
 		else {
-			//When the enemy is dead the player can mess with their inventory, these are the method calls to check for it
-			i->CheckForOpenCondition(this->player, _keysInp);
-			i->CheckForCloseCondition(this->player);
+			if (i->CheckForOpenCondition(this->player, _keysInp)) {
+				ui->SetDrawPlaceHolderVal(false);
+			}
+			
+			if (i->CheckForCloseCondition(this->player)) {
+				ui->SetDrawPlaceHolderVal(true);
+			}
 		}
 		stateIndex++;
 	}
@@ -99,7 +167,48 @@ void EnemyAIManager::Update(bool _keysInp[])
 void EnemyAIManager::Draw()
 {
 	for (auto& i : enemies) {
-		i->Draw();
+		//Check if the enemy can be seen
+		int disX = player->GetOriginX() - i->GetOriginX();
+		int disY = player->GetOriginY() - i->GetOriginY();
+		int disMag = (disX * disX) + (disY * disY);
+		if (disMag < tileRadiusForCheck*2) {
+			//We need to check for visibility, first check if the enemy is in the field of view
+			float angleToEnemy = ((atan2(disY, disX) * (180 / PI)) - 90) - player->GetAngle(); //In degrees
+			if (angleToEnemy < -180) {
+				angleToEnemy += 360;
+			}
+			if (angleToEnemy >= -(FOV) && angleToEnemy <= (FOV)) {
+				//The ai is in the player's fov need to check for obstruction
+				visibilityRay->edge.start.x = player->GetOriginX();
+				visibilityRay->edge.start.y = player->GetOriginY();
+				visibilityRay->edge.end.x = i->GetOriginX();
+				visibilityRay->edge.end.y = i->GetOriginY();
+				visibilityRay->intersected = false;
+
+				for (auto& j : level->edgePool) {
+					bool result = rayTools->CheckIntersection(&visibilityRay->edge, &j);
+					if (result) {
+						visibilityRay->intersected = true;
+						break;
+					}
+				}
+				if (!visibilityRay->intersected) {
+					//Draw the enemy's vision cone
+					dest.x = i->GetOriginX() - src.w / 2;
+					dest.y = i->GetOriginY() - src.h / 2;
+					SDL_RenderCopyEx(this->renderer, this->viewCone, &src, &dest, i->GetAngle(), NULL, SDL_FLIP_NONE);
+					//Draw the enemy on top
+					i->Draw();
+				}
+			}
+		}
+	}
+}
+
+void EnemyAIManager::DrawInvs()
+{
+	for (auto& i : enemies) {
+		i->DrawInv();
 	}
 }
 

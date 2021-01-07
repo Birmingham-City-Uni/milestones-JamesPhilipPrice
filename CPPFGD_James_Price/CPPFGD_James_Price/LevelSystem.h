@@ -8,7 +8,6 @@
 
 #define PI 3.14159265
 
-#define TILESIZE 32;
 #define CENTEROFFSET 16;
 
 /*
@@ -17,6 +16,7 @@
 * 1 - tile
 * 2 - bush
 * 3 - glass
+* 4 - wood
 */
 
 //Definitions for different types of tiles
@@ -38,11 +38,13 @@ public:
 
 	std::vector <int> CheckForSolidTileProximity(SDL_Point* _position, int _triggerRadius, int _originAngle, int _fov);
 
-	void LoadMap(int _levelArray[20][25]);
+	void LoadMap(int _levelArray[20][40]);
 	void CreateEdgeMap();
+	void CreateCollisionEdgeMap();
 	void DrawMap();
 
 	std::vector<Edge> edgePool;
+	std::vector<Edge> collsionEdgePool;
 
 private:
 	SDL_Renderer* renderer;
@@ -55,16 +57,22 @@ private:
 	SDL_Texture* bush;
 	SDL_Texture* glass_hor;
 	SDL_Texture* glass_ver;
+	SDL_Texture* wood;
 
-	int level[20][25];
-	int levelEdgeRegister[20][25][4];
-	int xLength = 25;
+	int level[20][40];
+	int levelEdgeRegister[20][40][4];
+	int levelCollisionEdgeRegister[20][40][4];
+	int xLength = 40;
 	int yLength = 20;
+
+	const int TILESIZE = 32;
 
 	std::map<int, interactability> tileInteraction = {
 		{0 , OPEN},
 		{1 , SOLID},
 		{2 , WALKABLE_MASKING},
-		{3 , BREAKABLE_TRANSPARENT}
+		{3 , BREAKABLE_TRANSPARENT},
+		{4 , BREAKABLE_TRANSPARENT},
+		{5 , OPEN}
 	};
 };

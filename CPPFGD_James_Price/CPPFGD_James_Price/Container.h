@@ -1,21 +1,11 @@
 #pragma once
 #include<iostream>
-#include "Entity.h"
 #include "Player.h"
 #include "Keys.h"
 
-enum LootType {
-	Empty = 0,
-	Food,
-	Water,
-	Bolts,
-	GunParts,
-	ENUM_C
-};
-
 class Container : public Entity{
 public:
-	Container(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health);
+	Container(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health, LevelSystem* _level);
 	~Container();
 
 	LootType inventory[5][6];
@@ -23,11 +13,20 @@ public:
 	void OpenChest();
 	void CloseChest();
 	void UnlockChest();
-	void CheckForOpenCondition(Player* _player, bool _keysInp[]);
-	void CheckForCloseCondition(Player* _player);
+	bool CheckForOpenCondition(Player* _player, bool _keysInp[]);
+	bool CheckForCloseCondition(Player* _player);
+
+	int GetInvetorySlotItem(int _x, int _y);
+
+	void DrawInv();
 
 private:
 	bool unlocked = true;
 	bool open;
-	Player* player;
+	SDL_Renderer* renderer;
+	//Inventory panel
+	SDL_Texture* items;
+	SDL_Point inventoryOffset = { 500, 640 };
+	SDL_Rect itemSrc = { 0, 0, 16, 16 };
+	SDL_Rect itemDest = { 0, 0, 16, 16 };
 };

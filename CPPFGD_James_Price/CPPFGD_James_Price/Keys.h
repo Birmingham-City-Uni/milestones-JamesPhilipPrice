@@ -8,9 +8,18 @@ enum KeyStates {
 	S,
 	D,
 	E,
+	SHIFT,
 	MOUSELEFT,
 	MOUSERIGHT,
 	ENUM_COUNT
 };
 
+enum LootType {
+	Empty = 0,
+	Food,
+	Water,
+	Bolts,
+	GunParts,
+	ENUM_C
+};
 #endif

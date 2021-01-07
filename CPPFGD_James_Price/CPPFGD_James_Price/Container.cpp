@@ -1,12 +1,16 @@
 #include "Container.h"
 
-Container::Container(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health) : Entity(_startX, _startY, _textureLocation, _renderer, _movable, _damagable, _health)
+Container::Container(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health, LevelSystem* _level) : Entity(_startX, _startY, _textureLocation, _renderer, _movable, _damagable, _health, _level)
 {
-	int x = 5;
-	int y = 6;
-	for (int i = 0; i < x; i++) {
-		for (int o = 0; o < y; o++) {
-			inventory[i][o] = static_cast<LootType>(rand() % ENUM_COUNT);
+	this->renderer = _renderer;
+	SDL_Surface* temp = IMG_Load("assets/Items.png");
+	items = SDL_CreateTextureFromSurface(this->renderer, temp);
+	SDL_FreeSurface(temp);
+	int y = 5;
+	int x = 6;
+	for (int i = 0; i < y; i++) {
+		for (int o = 0; o < x; o++) {
+			inventory[i][o] = static_cast<LootType>(rand() % ENUM_C);
 		}
 	}
 }
@@ -32,7 +36,7 @@ void Container::UnlockChest()
 	this->unlocked = true;
 }
 
-void Container::CheckForOpenCondition(Player* _player, bool _keysInp[])
+bool Container::CheckForOpenCondition(Player* _player, bool _keysInp[])
 {
 	//Update the container with the player and key input
 	if (unlocked && !open) {
@@ -61,18 +65,70 @@ void Container::CheckForOpenCondition(Player* _player, bool _keysInp[])
 					}
 				}
 				this->OpenChest();
+				return true;
 			}
 		}
 	}
+	return false;
 }
 
-void Container::CheckForCloseCondition(Player* _player)
+bool Container::CheckForCloseCondition(Player* _player)
 {
 	if (open) {
 		SDL_Rect nullRect;
 		if (!SDL_IntersectRect(this->GetEntityRect(), _player->GetEntityRect(), &nullRect)) {
 			std::cout << "The container closes" << std::endl;
 			CloseChest();
+			return true;
+		}
+	}
+	return false;
+}
+
+int Container::GetInvetorySlotItem(int _x, int _y)
+{
+	return (int)inventory[_y][_x];
+}
+
+void Container::DrawInv()
+{
+	if (open) {
+		std::cout << "Need to draw enemy inv" << std::endl;
+		//We need to get the item at the specific inventory slot
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 6; j++) {
+				switch (inventory[i][j]) {
+				case Empty:
+					itemSrc.x = 48;
+					itemSrc.y = 48;
+					break;
+				case Food:
+					itemSrc.x = 0;
+					itemSrc.y = 0;
+					break;
+				case Water:
+					itemSrc.x = 16;
+					itemSrc.y = 0;
+					break;
+				case Bolts:
+					itemSrc.x = 32;
+					itemSrc.y = 0;
+					break;
+				case GunParts:
+					itemSrc.x = 48;
+					itemSrc.y = 0;
+					break;
+				default:
+					itemSrc.x = 48;
+					itemSrc.y = 48;
+					break;
+				}
+				itemDest.x = (j * itemSrc.w) + inventoryOffset.x;
+				itemDest.y = (i * itemSrc.w) + inventoryOffset.y;
+				itemDest.w = itemSrc.w;
+				itemDest.h = itemSrc.h;
+				SDL_RenderCopy(this->renderer, this->items, &itemSrc, &itemDest);
+			}
 		}
 	}
 }

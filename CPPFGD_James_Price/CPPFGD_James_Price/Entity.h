@@ -1,4 +1,5 @@
 #pragma once
+#include "LevelSystem.h"
 #include <string>
 #include <iostream>
 #include <SDL.h>
@@ -21,8 +22,11 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
 
+	LevelSystem* level;
+	Ray* movementRay;
+	RayCastingTools* rayTools;
 public:
-	Entity(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health);
+	Entity(int _startX, int _startY, const char* _textureLocation, SDL_Renderer* _renderer, bool _movable, bool _damagable, float _health, LevelSystem* _level);
 	~Entity();
 
 	bool InitializeBulletCollisions();
@@ -32,6 +36,11 @@ public:
 	float GetAngle();
 	bool GetLifeState();
 	void SetLifeState(bool _state);
+
+	void ResetHealth();
+	void ResetPosition();
+
+	float GetHealthPercentage();
 
 	int GetOriginX();
 	int GetOriginY();
