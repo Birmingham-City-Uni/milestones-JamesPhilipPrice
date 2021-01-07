@@ -1,6 +1,25 @@
-﻿  Gameloop.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(34,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(35,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  Container.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(40,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(41,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+  EnemyAIManager.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(40,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(41,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(13,1): warning C4005: 'WALKSPEED': macro redefinition
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(4): message : see previous definition of 'WALKSPEED'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(14,1): warning C4005: 'RUNSPEED': macro redefinition
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(5): message : see previous definition of 'RUNSPEED'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(124,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(131,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(135,47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(136,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(151,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(155,47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(156,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(186,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(233,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Gameloop.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(40,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(41,27): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(13,1): warning C4005: 'WALKSPEED': macro redefinition
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(4): message : see previous definition of 'WALKSPEED'
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(14,1): warning C4005: 'RUNSPEED': macro redefinition
@@ -17,17 +36,28 @@ C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\C
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,35): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(125,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(125,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(126,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(126,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(146,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(146,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Player.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(40,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(41,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(44,19): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(45,19): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(55,19): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(56,19): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(63,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(64,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(65,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(107,43): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
   main.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(34,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(35,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(40,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(41,27): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(13,1): warning C4005: 'WALKSPEED': macro redefinition
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(4): message : see previous definition of 'WALKSPEED'
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(14,1): warning C4005: 'RUNSPEED': macro redefinition
@@ -44,11 +74,11 @@ C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\C
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,35): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(96,35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(125,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(125,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(142,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(126,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(126,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(143,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating Code...
   CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Debug\CPPFGD_James_Price.exe

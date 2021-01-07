@@ -160,9 +160,6 @@ void LevelSystem::CreateEdgeMap() {
 		}
 	}
 	std::cout << "Number of edges created: " << edgePool.size() << std::endl;
-	for (auto& i : edgePool) {
-		std::cout << "Edge X: " << i.start.x << " Y: " << i.start.y << " to X: " << i.end.x << " Y: " << i.end.y << std::endl;
-	}
 }
 
 void LevelSystem::CreateCollisionEdgeMap() {
@@ -264,9 +261,6 @@ void LevelSystem::CreateCollisionEdgeMap() {
 		}
 	}
 	std::cout << "Number of collision edges created: " << collsionEdgePool.size() << std::endl;
-	for (auto& i : collsionEdgePool) {
-		std::cout << "Edge X: " << i.start.x << " Y: " << i.start.y << " to X: " << i.end.x << " Y: " << i.end.y << std::endl;
-	}
 }
 void LevelSystem::DrawMap()
 {

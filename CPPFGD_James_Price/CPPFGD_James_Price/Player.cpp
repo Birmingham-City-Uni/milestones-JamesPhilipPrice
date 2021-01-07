@@ -98,6 +98,26 @@ bool Player::DepleteStamina()
 	}
 }
 
+bool Player::CheckIfExtracting()
+{
+	int disX = GetOriginX() - (extractPos.x + extractDest.w / 2);
+	int disY = GetOriginY() - (extractPos.y + extractDest.h / 2);
+	int disMag = (disX * disX) + (disY * disY);
+	if (disMag < extractRadius) {
+		timeLeftToExtract -= timeReductionAmount;
+		if (timeLeftToExtract <= 0) {
+			//Reset player but save score
+			ResetPlayer();
+		}
+		return true;
+	}
+	else {
+		timeLeftToExtract = maxTimeToExtract;
+		return false;
+	}
+
+}
+
 void Player::CheckLifeState(int* _score)
 {
 	if (!GetLifeState()) {

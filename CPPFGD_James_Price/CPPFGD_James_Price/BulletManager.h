@@ -110,6 +110,7 @@ public:
 						if (!(i->TakeDamage(10))) {
 							i->UnlockChest();
 							std::cout << "The enemy has died and their inventory is now unlocked" << std::endl;
+							enemyManager->CreateNewEnemy();
 						}
 						scoreVal++;
 						b.distance = 1000;

@@ -40,6 +40,8 @@ public:
 	void SetOpenPathPos(SDL_Point* _start, SDL_Point* _target);
 	void SetRandomPos(SDL_Point* _point);
 
+	void CreateNewEnemy();
+
 	void Update(bool _keysInp[]);
 	void Draw();
 	void DrawInvs();
@@ -65,6 +67,6 @@ private:
 	vector<Container*> enemies;
 	LevelSystem* level;
 	Player* player;
-	EnemyState* enemyStates;
+	EnemyState enemyStates[100];
 	SDL_Point* tempPos;
 };

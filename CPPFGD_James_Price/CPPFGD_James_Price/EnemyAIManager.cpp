@@ -6,7 +6,6 @@ EnemyAIManager::EnemyAIManager(int _enemyCount, SDL_Renderer* _renderer, Player*
 	this->player = _player;
 	this->level = _level;
 	this->ui = _ui;
-	this->enemyStates = new EnemyState[_enemyCount];
 	this->visibilityRay = new Ray;
 	this->patrolVisibilityRay = new Ray;
 	this->rayTools = new RayCastingTools();
@@ -88,6 +87,17 @@ void EnemyAIManager::SetRandomPos(SDL_Point* _point)
 {
 	_point->x = rand() % (MAXXVAL + 1);
 	_point->y = rand() % (MAXYVAL + 1);
+}
+
+void EnemyAIManager::CreateNewEnemy()
+{
+	SDL_Point temp;
+	FindValidSpawnPoint(&temp);
+	enemies.push_back(new Container(temp.x, temp.y, "assets/enemy.png", this->renderer, true, true, 100, this->level));
+	enemyPatrolLocations.push_back(new SDL_Point());
+	SetOpenPathPos(&temp, enemyPatrolLocations[enemyPatrolLocations.size() - 1]);
+	this->enemyStates[enemies.size() - 1] = PATROL;
+	cout << "Created new enemy. Number of enemy entities in world: " << enemies.size() << endl;
 }
 
 void EnemyAIManager::Update(bool _keysInp[])

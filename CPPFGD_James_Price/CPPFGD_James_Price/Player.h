@@ -15,6 +15,8 @@ public:
 	void DamagePlayer(float _damage);
 	bool DepleteStamina();
 
+	bool CheckIfExtracting();
+
 	void CheckLifeState(int* _score);
 	void ResetPlayer();
 
@@ -24,6 +26,10 @@ private:
 	SDL_Rect extractSrc = {0, 0, 128, 128};
 	SDL_Rect extractDest = {0, 0, 128, 128};
 	SDL_Texture* extractTexture;
+	int extractRadius = 64;
+	int maxTimeToExtract = 1500;
+	int timeLeftToExtract = maxTimeToExtract;
+	float timeReductionAmount = 1;
 	//Other stuff
 	SDL_Rect src = { 0, 0, 256, 256 };
 	SDL_Rect dest = { 0, 0, 256, 256 };

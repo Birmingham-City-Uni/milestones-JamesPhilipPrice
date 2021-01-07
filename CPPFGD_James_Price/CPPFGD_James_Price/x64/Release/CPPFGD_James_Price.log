@@ -1,54 +1,16 @@
-﻿  Container.cpp
-  EnemyAIManager.cpp
-  Entity.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(31,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(32,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(48,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Entity.cpp(52,11): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Gameloop.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(31,34): warning C4018: '>': signed/unsigned mismatch
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(34,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(45,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(140,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Gameloop.cpp(140,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  LevelSystem.cpp
-  main.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(31,34): warning C4018: '>': signed/unsigned mismatch
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(33,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(34,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(45,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(48,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,23): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\BulletManager.h(77,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Player.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(33,18): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(34,18): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(39,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(40,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.cpp(41,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Target.cpp
-  TextRenderer.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(6,67): warning C4474: 'printf' : too many arguments passed for format string
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(6,67): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\TextRenderer.cpp(11,10): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+﻿  LevelSystem.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(89,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(111,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(133,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(156,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(190,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(212,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(234,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(257,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(343,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 266 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  4 of 474 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    19 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Release\CPPFGD_James_Price.exe

@@ -162,7 +162,10 @@ void Gameloop::Draw()
 	uiManager->Draw();
 	enemyManager->DrawInvs();
 	std::string scoreString = "Score: " + std::to_string(score);
-	textRenderer->RenderString(scoreString, 1100, 640);
+	textRenderer->RenderString(scoreString, 1100, 660);
+	if (player->CheckIfExtracting()) {
+		textRenderer->RenderString("Extracting...", 800, 660);
+	}
 
 	//Push the frame to the window
 	SDL_RenderPresent(renderer);
