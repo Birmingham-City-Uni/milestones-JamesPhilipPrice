@@ -26,3 +26,14 @@ There is a huge performance issue with the edge detection system. currently the 
 <img src="Documentation_assets/diagrams/demo.png?raw=true"/>
 
 The solution would require edges being precalculated for the game meaning instead of each tile having 4 edges that are calculated on the fly, the entire map would have a constant set of edges that define the visible area and they would not need to be calculated on the fly, meaning there would be less CPU overhead during the games runtime and significantly less edges used.
+
+## Update: 07/01/21 00:14
+I have complete multiple jobs for the game:
+-Finished the AI vision cone
+-Redesigned and created the edge based collision system
+-Created the player vision cone system
+-Added Health, stamina and searched inventories to the UI manager
+-Reworked the bullet manager to utilise object pooling
+
+Currently when the player is not looking at the AI they do not appear on the screen. This means that when the player break's theie line of sight with any AI enemies, they have to guess where they are.
+Part of the vision cone system is built upon Ray casting and line intersection detection, but the maps have different edge layouts for things like, vision obscurity, and physical collision.
