@@ -199,7 +199,7 @@ void EnemyAIManager::Draw()
 			if (angleToEnemy >= -(FOV) && angleToEnemy <= (FOV)) {
 				//The ai is in the player's fov need to check for obstruction
 				//Intersection flags forall four rays cast
-				bool intersectionFlags[4];
+				bool intersectionFlags[4] = { false, false, false, false};
 				//Ray one (top left corner)
 				visibilityRay->edge.start.x = player->GetOriginX();
 				visibilityRay->edge.start.y = player->GetOriginY();
@@ -264,7 +264,7 @@ void EnemyAIManager::Draw()
 					}
 				}
 				for (int index = 0; index < 4; index++) {
-					if (intersectionFlags[index]) {
+					if (!intersectionFlags[index]) {
 						//At least on of the corners can be seen, draw the AI then break from the loop
 						//Draw the enemy's vision cone
 						if (i->GetLifeState()) {

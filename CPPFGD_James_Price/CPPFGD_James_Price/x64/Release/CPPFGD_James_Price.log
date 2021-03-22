@@ -1,16 +1,22 @@
-﻿  LevelSystem.cpp
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(89,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(111,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(133,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(156,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(190,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(212,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(234,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(257,74): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\LevelSystem.cpp(346,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  EnemyAIManager.cpp
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(46,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(47,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(14,1): warning C4005: 'WALKSPEED': macro redefinition
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(4): message : see previous definition of 'WALKSPEED'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.h(15,1): warning C4005: 'RUNSPEED': macro redefinition
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\Player.h(5): message : see previous definition of 'RUNSPEED'
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(124,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(131,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(135,47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(136,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(151,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(155,47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(156,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(195,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\CPPFGD_James_Price\EnemyAIManager.cpp(300,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating code
-  0 of 479 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 479 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   CPPFGD_James_Price.vcxproj -> C:\Users\jppri\Documents\GitHub\milestones-JamesPhilipPrice\CPPFGD_James_Price\x64\Release\CPPFGD_James_Price.exe
